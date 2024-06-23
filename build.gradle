@@ -1,0 +1,71 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'koy.github.koooooo7'
+version '1.0.0-SNAPSHOT'
+description ':doughnut: An inevitable charts library for Java.'
+
+ext {
+    lombokVersion = "1.18.32"
+    jacksonVersion = "2.17.1"
+    cglibVersion = "3.3.0"
+    lang3Version = "3.14.0"
+    freeMakerVersion = "2.3.33"
+    junitVersion = "5.10.2"
+    jsonPVersion = "1.17.2"
+    jaywayVersion = "2.9.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "cglib:cglib:$cglibVersion"
+    implementation "org.apache.commons:commons-lang3:$lang3Version"
+    implementation "org.freemarker:freemarker:$freeMakerVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "org.jsoup:jsoup:$jsonPVersion"
+    testImplementation "com.jayway.jsonpath:json-path:$jaywayVersion"
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            pom {
+                name = 'java-echarts'
+                description = ":doughnut: An inevitable charts library for Java."
+                url = 'https://github.com/Koooooo-7/java-echarts'
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://github.com/Koooooo-7/java-echarts/blob/main/LICENSE'
+                    }
+                }
+                developer {
+                    id = 'Koooooo-7'
+                    name = 'KoyZhuang'
+                    email = 'koy@ko8e24.top'
+                }
+            }
+        }
+    }
+}
