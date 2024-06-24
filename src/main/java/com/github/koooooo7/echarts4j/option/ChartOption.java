@@ -1,12 +1,12 @@
-package com.github.koooooo7.echarts.option;
+package com.github.koooooo7.echarts4j.option;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.koooooo7.echarts.option.chart.Legend;
-import com.github.koooooo7.echarts.option.chart.XAxis;
-import com.github.koooooo7.echarts.option.chart.YAxis;
-import com.github.koooooo7.echarts.option.series.SeriesOption;
-import com.github.koooooo7.echarts.option.chart.Title;
+import com.github.koooooo7.echarts4j.option.chart.Legend;
+import com.github.koooooo7.echarts4j.option.chart.XAxis;
+import com.github.koooooo7.echarts4j.option.chart.YAxis;
+import com.github.koooooo7.echarts4j.option.series.SeriesOption;
+import com.github.koooooo7.echarts4j.option.chart.Title;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 

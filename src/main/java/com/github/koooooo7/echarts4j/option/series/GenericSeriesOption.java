@@ -1,7 +1,7 @@
-package com.github.koooooo7.echarts.option.series;
+package com.github.koooooo7.echarts4j.option.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.koooooo7.echarts.chart.ChartType;
+import com.github.koooooo7.echarts4j.chart.ChartType;
 import lombok.Builder;
 import lombok.Data;
 

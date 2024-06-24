@@ -1,6 +1,6 @@
-package com.github.koooooo7.echarts.render;
+package com.github.koooooo7.echarts4j.render;
 
-import com.github.koooooo7.echarts.util.RendersLoader;
+import com.github.koooooo7.echarts4j.util.RendersLoader;
 
 public class RenderProvider {
     private static final Render render;

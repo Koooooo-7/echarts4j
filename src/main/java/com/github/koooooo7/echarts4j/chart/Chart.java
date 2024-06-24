@@ -1,6 +1,6 @@
-package com.github.koooooo7.echarts.chart;
+package com.github.koooooo7.echarts4j.chart;
 
-import com.github.koooooo7.echarts.option.ChartOption;
+import com.github.koooooo7.echarts4j.option.ChartOption;
 
 public interface Chart {
 

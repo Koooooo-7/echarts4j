@@ -1,7 +1,7 @@
-package com.github.koooooo7.echarts.render;
+package com.github.koooooo7.echarts4j.render;
 
-import com.github.koooooo7.echarts.chart.Canvas;
-import com.github.koooooo7.echarts.util.annotation.Attention;
+import com.github.koooooo7.echarts4j.chart.Canvas;
+import com.github.koooooo7.echarts4j.util.annotation.Attention;
 
 import java.io.Writer;
 

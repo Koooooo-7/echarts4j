@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'koy.github.koooooo7'
+group 'com.github.koooooo7'
 version '1.0.0-SNAPSHOT'
 description ':doughnut: An inevitable charts library for Java.'
 
@@ -51,13 +51,13 @@ publishing {
             from components.java
 
             pom {
-                name = 'java-echarts'
+                name = 'echarts4j'
                 description = ":doughnut: An inevitable charts library for Java."
-                url = 'https://github.com/Koooooo-7/java-echarts'
+                url = 'https://github.com/Koooooo-7/echarts4j'
                 licenses {
                     license {
                         name = 'MIT'
-                        url = 'https://github.com/Koooooo-7/java-echarts/blob/main/LICENSE'
+                        url = 'https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE'
                     }
                 }
                 developer {

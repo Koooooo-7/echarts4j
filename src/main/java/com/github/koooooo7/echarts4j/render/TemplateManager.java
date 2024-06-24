@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.render;
+package com.github.koooooo7.echarts4j.render;
 
 import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.Configuration;

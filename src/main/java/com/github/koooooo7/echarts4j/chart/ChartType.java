@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.chart;
+package com.github.koooooo7.echarts4j.chart;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

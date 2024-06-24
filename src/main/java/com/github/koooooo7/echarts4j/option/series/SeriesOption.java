@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.option.series;
+package com.github.koooooo7.echarts4j.option.series;
 
 public interface SeriesOption {
     String getType();

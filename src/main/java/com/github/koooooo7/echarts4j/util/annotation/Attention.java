@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.util.annotation;
+package com.github.koooooo7.echarts4j.util.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

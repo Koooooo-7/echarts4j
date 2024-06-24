@@ -1,8 +1,8 @@
-package com.github.koooooo7.echarts.render;
+package com.github.koooooo7.echarts4j.render;
 
 import freemarker.template.Template;
-import com.github.koooooo7.echarts.chart.Canvas;
-import com.github.koooooo7.echarts.exception.RenderException;
+import com.github.koooooo7.echarts4j.chart.Canvas;
+import com.github.koooooo7.echarts4j.exception.RenderException;
 
 import java.io.Writer;
 import java.util.HashMap;

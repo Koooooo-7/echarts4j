@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.option.chart;
+package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

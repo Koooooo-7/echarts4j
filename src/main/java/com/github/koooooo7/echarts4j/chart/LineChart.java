@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.chart;
+package com.github.koooooo7.echarts4j.chart;
 
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @Data
-public class LineChart extends GenericChart{
+public class LineChart extends GenericChart {
     @Builder.Default
     private ChartType chartType = ChartType.Line;
 }

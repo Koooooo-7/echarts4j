@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.type;
+package com.github.koooooo7.echarts4j.type;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.option.chart;
+package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -11,8 +11,7 @@ import java.util.List;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class YAxis {
-    @Builder.Default
-    private String type = "value";
+    private String type;
     private String name;
     private List<?> data;
 }

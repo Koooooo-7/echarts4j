@@ -1,2 +1,2 @@
-# java-echarts
-🎨 The adorable charts library for Java.
+# echarts4j
+🍩 An inevitable charts library for Java.

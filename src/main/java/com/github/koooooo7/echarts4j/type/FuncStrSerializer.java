@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts.type;
+package com.github.koooooo7.echarts4j.type;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

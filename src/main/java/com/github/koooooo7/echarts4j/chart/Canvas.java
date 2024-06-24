@@ -1,10 +1,10 @@
-package com.github.koooooo7.echarts.chart;
+package com.github.koooooo7.echarts4j.chart;
 
 
-import com.github.koooooo7.echarts.exception.ChartException;
-import com.github.koooooo7.echarts.exception.RenderException;
-import com.github.koooooo7.echarts.render.Render;
-import com.github.koooooo7.echarts.render.RenderProvider;
+import com.github.koooooo7.echarts4j.exception.ChartException;
+import com.github.koooooo7.echarts4j.exception.RenderException;
+import com.github.koooooo7.echarts4j.render.Render;
+import com.github.koooooo7.echarts4j.render.RenderProvider;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 
 @Data
 public class Canvas {
-    private String title = "java-echarts";
+    private String title = "echarts4j";
     private String echartsAsset = "https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
     private List<String> appendJsAssets = new ArrayList<>();
     private List<String> appendCssAssets = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Canvas {
         return this;
     }
 
-    // one way step
+    // one way ticket
     public Render extractRender() {
         return RenderProvider.get();
     }

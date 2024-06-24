@@ -1,6 +1,6 @@
-package com.github.koooooo7.echarts.util;
+package com.github.koooooo7.echarts4j.util;
 
-import com.github.koooooo7.echarts.render.Render;
+import com.github.koooooo7.echarts4j.render.Render;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

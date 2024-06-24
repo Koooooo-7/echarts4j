@@ -1,12 +1,12 @@
-package com.github.koooooo7.echarts.util;
+package com.github.koooooo7.echarts4j.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.github.koooooo7.echarts.exception.ChartException;
-import com.github.koooooo7.echarts.type.FuncStrSerializer;
-import com.github.koooooo7.echarts.type.FuncStr;
+import com.github.koooooo7.echarts4j.exception.ChartException;
+import com.github.koooooo7.echarts4j.type.FuncStrSerializer;
+import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

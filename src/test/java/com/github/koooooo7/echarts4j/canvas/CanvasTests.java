@@ -1,18 +1,18 @@
-package com.github.koooooo7.echarts.canvas;
+package com.github.koooooo7.echarts4j.canvas;
 
 
-import com.github.koooooo7.echarts.chart.Canvas;
-import com.github.koooooo7.echarts.chart.GenericChart;
-import com.github.koooooo7.echarts.option.chart.Legend;
-import com.github.koooooo7.echarts.option.chart.XAxis;
-import com.github.koooooo7.echarts.option.series.GenericSeriesOption;
-import com.github.koooooo7.echarts.type.FuncStr;
+import com.github.koooooo7.echarts4j.chart.Canvas;
+import com.github.koooooo7.echarts4j.chart.GenericChart;
+import com.github.koooooo7.echarts4j.option.chart.Legend;
+import com.github.koooooo7.echarts4j.option.chart.XAxis;
+import com.github.koooooo7.echarts4j.option.series.GenericSeriesOption;
+import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.jayway.jsonpath.JsonPath;
-import com.github.koooooo7.echarts.option.ChartOption;
-import com.github.koooooo7.echarts.option.chart.Title;
-import com.github.koooooo7.echarts.option.chart.YAxis;
-import com.github.koooooo7.echarts.render.Render;
-import com.github.koooooo7.echarts.render.RenderProvider;
+import com.github.koooooo7.echarts4j.option.ChartOption;
+import com.github.koooooo7.echarts4j.option.chart.Title;
+import com.github.koooooo7.echarts4j.option.chart.YAxis;
+import com.github.koooooo7.echarts4j.render.Render;
+import com.github.koooooo7.echarts4j.render.RenderProvider;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -55,7 +55,7 @@ class CanvasTests {
     @Test
     void shouldRenderCorrect_WhenCallTheCanvas_GivenBasicConfig() throws IOException {
 
-        final String defaultTitle = "java-echarts";
+        final String defaultTitle = "echarts4j";
         final String title = "My Canvas";
         final String mockToReplaceDefaultEchartsResources = "./mock/echarts.mock.js";
         final String customJs = "/mock.js";
@@ -204,6 +204,9 @@ class CanvasTests {
 
             final Element chartScriptEl = doc.select(DOMHelper.ChartScriptSelector).first();
             final String chartRawId = chartScriptEl.attr(DOMHelper.ChartScriptChartIdAttr);
+
+            Assertions.assertEquals(chartId, chartRawId);
+
             final String wholeScript = chartScriptEl.dataNodes().get(0).getWholeData();
 
             final Pattern pattern = DOMHelper.patternProvider(chartRawId).get();
@@ -275,6 +278,7 @@ class CanvasTests {
             final Canvas cvs = Canvas.builder()
                     .addCharts(c, c1)
                     .build();
+            cvs.renderTo(new File("./test2charts.html"));
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
 

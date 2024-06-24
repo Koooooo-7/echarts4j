@@ -1,14 +1,17 @@
-package com.github.koooooo7.echarts.chart;
+package com.github.koooooo7.echarts4j.chart;
 
-import com.github.koooooo7.echarts.option.ChartOption;
-import com.github.koooooo7.echarts.option.series.SeriesOption;
-import com.github.koooooo7.echarts.type.FuncStr;
-import com.github.koooooo7.echarts.util.ChartUtil;
-import com.github.koooooo7.echarts.util.JsonUtil;
-import com.github.koooooo7.echarts.util.annotation.Attention;
+import com.github.koooooo7.echarts4j.option.ChartOption;
+import com.github.koooooo7.echarts4j.option.series.SeriesOption;
+import com.github.koooooo7.echarts4j.type.FuncStr;
+import com.github.koooooo7.echarts4j.util.ChartUtil;
+import com.github.koooooo7.echarts4j.util.JsonUtil;
+import com.github.koooooo7.echarts4j.util.annotation.Attention;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.StringUtils;
 
