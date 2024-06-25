@@ -44,8 +44,6 @@ public class PieChartSeriesOption extends GenericSeriesOption implements SeriesO
         private Integer symbolRotate;
         private Boolean symbolKeepAspect;
         private List<?> symbolOffset;
-
-
     }
 
 }
