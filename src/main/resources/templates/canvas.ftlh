@@ -11,13 +11,16 @@
     <#list canvas.appendCssAssets as cssAsset>
     <link data-asset-type="echarts4j-custom-css-asset" href="${cssAsset?trim?no_esc}" rel="stylesheet">
     </#list>
+    <style> .container {display: flex;justify-content: center;align-items: center;} .item {margin: auto;} </style>
 </head>
 <body>
+
 <#list charts?keys as chartId>
     <#assign chart = charts[chartId]>
     <#assign chartId = chartId>
     <#assign options = chart.options>
     <#assign functions = chart.functions>
+    <#assign listeners = chart.listeners>
 <!-- echarts4j_${chartId} -->
 <div class="container" data-echarts4j-container-id="${chartId}">
     <div class="item" id="echarts4j_${chartId}" style="height:${chart.height};width:${chart.width};"></div>
@@ -30,6 +33,14 @@
 
     <#list functions as func>
     ${func?remove_beginning(":")?no_esc}
+    </#list>
+
+    <#list listeners as listener>
+    <#if listener.query?has_content>
+    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.query?remove_beginning(":")?no_esc}, ${listener.handler?remove_beginning(":")?no_esc});
+    <#else>
+    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.handler?remove_beginning(":")?no_esc});
+    </#if>
     </#list>
 </script>
 <!-- /echarts4j_${chartId} -->

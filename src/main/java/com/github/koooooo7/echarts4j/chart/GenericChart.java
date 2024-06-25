@@ -1,17 +1,15 @@
 package com.github.koooooo7.echarts4j.chart;
 
+import com.github.koooooo7.echarts4j.exception.ChartException;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.github.koooooo7.echarts4j.util.ChartUtil;
 import com.github.koooooo7.echarts4j.util.JsonUtil;
 import com.github.koooooo7.echarts4j.util.annotation.Attention;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.StringUtils;
 
@@ -29,9 +27,20 @@ public class GenericChart extends Container implements Chart {
     private String chartId;
     private ChartOption options;
     private final List<String> functions = new LinkedList<>();
+    private final List<Listener> listeners = new LinkedList<>();
 
-    public GenericChart addJSFunctions(FuncStr funcStr) {
+    public GenericChart addJSFunction(FuncStr funcStr) {
         functions.add(JsonUtil.writeValueAsString(funcStr));
+        return this;
+    }
+
+    public GenericChart addListener(String eventName, FuncStr handler) {
+        listeners.add(new Listener(eventName, JsonUtil.writeValueAsString(handler)));
+        return this;
+    }
+
+    public GenericChart addListener(String eventName, FuncStr query, FuncStr handler) {
+        listeners.add(new Listener(eventName, JsonUtil.writeValueAsString(query), JsonUtil.writeValueAsString(handler)));
         return this;
     }
 
@@ -58,7 +67,8 @@ public class GenericChart extends Container implements Chart {
     public void postProcessor() {
         configChartIdIfNecessary();
         configChartTypeOnSeriesIfNecessary();
-        injectInstanceToFuncStrIfNecessary();
+        injectInstanceToFunctionsIfNecessary();
+        injectInstanceToListenersIfNecessary();
     }
 
     private void configChartIdIfNecessary() {
@@ -72,13 +82,24 @@ public class GenericChart extends Container implements Chart {
         if (Objects.nonNull(options)) {
             options.getSeries().forEach(s -> {
                 if (StringUtils.isEmpty(s.getType())) {
+                    if (ChartType.Generic == chartType) {
+                        throw new ChartException("Please set the chart type in series or use the specific Chart builder rather Generic");
+                    }
                     s.setType(chartType.getType());
                 }
             });
         }
     }
 
-    private void injectInstanceToFuncStrIfNecessary() {
+    private void injectInstanceToFunctionsIfNecessary() {
+        if (listeners.isEmpty()) {
+            return;
+        }
+
+        listeners.forEach(l -> l.setHandler(ChartUtil.injectInstance(l.getHandler(), this)));
+    }
+
+    private void injectInstanceToListenersIfNecessary() {
         if (functions.isEmpty()) {
             return;
         }
@@ -89,6 +110,24 @@ public class GenericChart extends Container implements Chart {
                 .collect(Collectors.toList());
         functions.clear();
         functions.addAll(tmp);
+    }
+
+    @Data
+    public static class Listener {
+        private String eventName;
+        private String query;
+        private String handler;
+
+        public Listener(String eventName, String handler) {
+            this.eventName = eventName;
+            this.handler = handler;
+        }
+
+        public Listener(String eventName, String query, String handler) {
+            this.eventName = eventName;
+            this.query = query;
+            this.handler = handler;
+        }
     }
 
 }

@@ -9,6 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 public enum ChartType {
     Generic(StringUtils.EMPTY),
     Line("line"),
+    Bar("bar"),
+    Pie("pie"),
 
     ;
     private final String type;

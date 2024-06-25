@@ -409,7 +409,7 @@ class CanvasTests {
                                             .build()
                                     )
                                     .build()
-                                    .addJSFunctions(FuncStr.of(customFunc))
+                                    .addJSFunction(FuncStr.of(customFunc))
                     ).build()
                     .renderTo(new PrintWriter(System.out));
 
