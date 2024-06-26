@@ -18,6 +18,8 @@ public enum ChartType {
     Line("line"),
     Bar("bar"),
     Pie("pie"),
+    Scatter("scatter"),
+    EffectScatter("effectScatter")
 
     ;
     private final String type;

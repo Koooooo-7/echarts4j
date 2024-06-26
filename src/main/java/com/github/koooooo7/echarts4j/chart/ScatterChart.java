@@ -8,7 +8,8 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
-public class BarChart extends BaseChart<BarChart> {
+public class ScatterChart extends BaseChart<ScatterChart> {
     @Builder.Default
-    private ChartType chartType = ChartType.Bar;
+    private ChartType chartType = ChartType.Scatter;
+
 }
