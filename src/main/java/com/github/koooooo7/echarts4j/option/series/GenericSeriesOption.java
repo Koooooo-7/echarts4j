@@ -2,6 +2,8 @@ package com.github.koooooo7.echarts4j.option.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.chart.ChartType;
+import com.github.koooooo7.echarts4j.option.embed.SeriesTextStyle;
+import com.github.koooooo7.echarts4j.option.embed.SeriesTooltip;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.Builder;
 import lombok.Data;
@@ -46,4 +48,16 @@ public class GenericSeriesOption implements SeriesOption {
     private String width;
     private String height;
     private List<?> center;
+    private Boolean animation;
+    private Integer animationThreshold;
+    private FuncStr animationDuration;
+    private Integer animationEasing;
+    private FuncStr animationDelay;
+    private FuncStr animationDurationUpdate;
+    private String animationEasingUpdate;
+    private FuncStr animationDelayUpdate;
+    private SeriesTooltip tooltip;
+    private SeriesTextStyle textStyle;
+
+
 }
