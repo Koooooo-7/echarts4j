@@ -2,13 +2,12 @@
 
 *🍩 An inevitable charts library for Java.*
 
-TBH, I think use Java to build charts is a disaster
-which is struggling in the Explicit typed hell.
+TBH, I think use `Java` to build charts is a disaster
+which should be struggling in the explicit typed hell.
 But it also makes me interest in how to make it close to the `loosely` (I don't mean
 that you put all things as pure `Object`s :dog:).
-After maintaining some other languages implementations of [Echarts](https://echarts.apache.org/), I'm more curious about
-how to make it in
-Java. Luckily, recently, time is available, so it is here.
+After maintaining some other languages implementations of [Echarts](https://echarts.apache.org/), and know about much
+tricks, I'm more curious about how to make it. Luckily, recently, time is available, so it comes here.
 
 ---
 
@@ -18,10 +17,9 @@ Java. Luckily, recently, time is available, so it is here.
 
 ### ✨ Features
 
-* Handy builder API and toolbox.
+* Smooth builder APIs.
 * Highly configurable chart options.
 * Closely to the full Echarts functions.
-* Plugin way to customize render.
 
 ---
 
