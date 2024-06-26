@@ -71,7 +71,7 @@ public class OverlapTests {
                     .build();
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
-            render.render(cvs, new FileWriter("overlap.html"));
+//            render.render(cvs, new FileWriter("overlap.html"));
         } catch (Exception e) {
             Assertions.fail();
         }
@@ -121,7 +121,7 @@ public class OverlapTests {
                     .build();
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
-            render.render(cvs, new FileWriter("overlap2.html"));
+//            render.render(cvs, new FileWriter("overlap2.html"));
         } catch (Exception e) {
             Assertions.fail();
         }

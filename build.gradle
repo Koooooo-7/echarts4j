@@ -1,10 +1,12 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'java'
     id 'maven-publish'
 }
 
 group 'com.github.koooooo7'
-version '1.0.0-SNAPSHOT'
+version project.echarts4jVersion
 description ':doughnut: An inevitable charts library for Java.'
 
 ext {
@@ -37,6 +39,18 @@ dependencies {
     testImplementation "com.jayway.jsonpath:json-path:$jaywayVersion"
 
 }
+
+jar {
+    manifest {
+        attributes(
+                'Built-By': 'KoyZhuang',
+                'Build-LICENSE': 'MIT',
+                'Build-Version': project.echarts4jVersion,
+                'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+        )
+    }
+}
+
 
 test {
     useJUnitPlatform()

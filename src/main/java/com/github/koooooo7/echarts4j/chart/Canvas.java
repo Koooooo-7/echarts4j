@@ -2,14 +2,12 @@ package com.github.koooooo7.echarts4j.chart;
 
 
 import com.github.koooooo7.echarts4j.exception.ChartException;
-import com.github.koooooo7.echarts4j.exception.RenderException;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,27 +24,40 @@ public class Canvas {
     private String echartsAsset = "https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
     private List<String> appendJsAssets = new ArrayList<>();
     private List<String> appendCssAssets = new ArrayList<>();
-    private final Map<String, Chart> charts = new LinkedHashMap<>();
+    private final Map<String, Chart<?>> charts = new LinkedHashMap<>();
 
     Canvas() {
     }
 
-    // A handy method to quick render out
+
+    /**
+     * A handy method to quick render out charts.
+     *
+     * @param file the {@link File} locate.
+     * @return the {@link Canvas} instance for further operations.
+     */
     public Canvas renderTo(File file) {
-        try (Writer writer = new FileWriter(file)) {
-            RenderProvider.get().render(this, writer);
-            return this;
-        } catch (Exception e) {
-            throw new RenderException(e);
-        }
+        RenderProvider.get().render(this, file);
+        return this;
     }
 
+    /**
+     * A handy method to quick render out charts to different output.
+     *
+     * @param writer the {@link Writer}, such as {@link java.io.FileWriter}, {@link java.io.StringWriter}.
+     * @return the {@link Canvas} instance for further operations.
+     */
     public Canvas renderTo(Writer writer) {
         RenderProvider.get().render(this, writer);
         return this;
     }
 
-    // one way ticket
+
+    /**
+     * A one way step to extract the {@link Render}, same to use {@see RenderProvider#get()}.
+     *
+     * @return the {@link Render} instance head of the render chain.
+     */
     public Render extractRender() {
         return RenderProvider.get();
     }
@@ -55,7 +66,7 @@ public class Canvas {
         return new CanvasBuilder(this);
     }
 
-    private void registerChart(String chartId, Chart chart) {
+    private void registerChart(String chartId, Chart<?> chart) {
         charts.putIfAbsent(chartId, chart);
     }
 
@@ -91,20 +102,26 @@ public class Canvas {
             return this;
         }
 
-        public CanvasBuilder addCharts(Chart... charts) {
+        public CanvasBuilder addCharts(Chart<?>... charts) {
             Arrays.stream(charts).forEach(c -> {
+                c.postProcessor();
                 if (Objects.isNull(c.getChartType())) {
                     throw new ChartException("Can not add a no type chart !");
                 }
-                c.postProcessor();
                 canvas.registerChart(c.getChartId(), c);
             });
 
             return this;
         }
 
+        /**
+         * @param chartId       the chartId which user preset on {@link Chart} when addChart.
+         * @param chartModifier the chartModifier to update the Chart.
+         * @param <T>           the Chart instance type.
+         * @return the {@link CanvasBuilder} to do further operations.
+         */
         @SuppressWarnings("unchecked")
-        public <T extends Chart> CanvasBuilder updateChart(String chartId, Consumer<Optional<T>> chartModifier) {
+        public <T extends Chart<T>> CanvasBuilder updateChart(String chartId, Consumer<Optional<T>> chartModifier) {
             chartModifier.accept(Optional.ofNullable((T) (canvas.getCharts().get(chartId))));
             return this;
         }

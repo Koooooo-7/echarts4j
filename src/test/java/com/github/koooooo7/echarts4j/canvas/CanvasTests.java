@@ -278,9 +278,8 @@ class CanvasTests {
             final Canvas cvs = Canvas.builder()
                     .addCharts(c, c1)
                     .build();
-            cvs.renderTo(new File("./test2charts.html"));
-            final Render render = RenderProvider.get();
-            render.render(cvs, writer);
+            cvs.renderTo(new File("./test2charts.html"))
+                    .renderTo(writer);
 
             String html = writer.toString();
             Document doc = Jsoup.parse(html);

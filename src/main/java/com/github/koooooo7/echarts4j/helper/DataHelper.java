@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
+/**
+ * The {@link DataHelper} aims to provide a simple way to build data or any key-val pais json array objects.
+ */
 public class DataHelper {
     public static final String FIELD_NAME = "name";
     public static final String FIELD_VALUE = "value";
@@ -97,7 +100,7 @@ public class DataHelper {
 
         public DataHelper build() {
             if (dataModelFieldNames.isEmpty()) {
-                throw new ChartException("Can not init a empty data model");
+                throw new ChartException("Can not init an empty data model");
             }
             return new DataHelper(this);
         }

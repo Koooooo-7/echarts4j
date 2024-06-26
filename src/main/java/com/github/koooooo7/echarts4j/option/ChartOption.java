@@ -16,8 +16,8 @@ import lombok.experimental.SuperBuilder;
 import java.util.LinkedList;
 import java.util.List;
 
-@SuperBuilder
 @Data
+@SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChartOption {
     private Title title;

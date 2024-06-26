@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 @Data
-@SuperBuilder()
+@SuperBuilder
 public class Container {
     private String containerId;
     @Builder.Default

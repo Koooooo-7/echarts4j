@@ -67,3 +67,6 @@ bin/
 .DS_Store
 /.idea/
 *.html
+/echarts4j-snapshot-playwright/
+
+

@@ -104,7 +104,7 @@ public class ListenersTests {
                     .build();
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
-            render.render(cvs, new FileWriter("dynamic-pie.html"));
+//            render.render(cvs, new FileWriter("dynamic-pie.html"));
         } catch (Exception e) {
             Assertions.fail();
         }
