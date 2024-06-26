@@ -121,56 +121,56 @@ tricks, I'm more curious about how to make it. Luckily, recently, time is availa
   <summary>Code</summary>
 
 ```
-final String chartTitle = "Dynamic Pie";
-final String seriesName = "Access Source";
+ final String chartTitle = "Dynamic Pie";
+    final String seriesName = "Access Source";
 
-final List<String> legendData = Arrays.asList(
-        "Direct Access",
-        "Email Marketing",
-        "Affiliate Ads",
-        "Video Ads",
-        "Search Engines"
-        );
+    final List<String> legendData = Arrays.asList(
+            "Direct Access",
+            "Email Marketing",
+            "Affiliate Ads",
+            "Video Ads",
+            "Search Engines"
+    );
 
-final DataHelper dataHelper = DataHelper.create()
-        .addValueField(Integer.class)
-        .addNameField()
-        .build()
-        .addData(335, "Direct Access")
-        .addData(310, "Email Marketing")
-        .addData(234, "Affiliate Ads")
-        .addData(135, "Video Ads")
-        .addData(1548, "Search Engines");
+    final DataHelper dataHelper = DataHelper.create()
+            .addValueField(Integer.class)
+            .addNameField()
+            .build()
+            .addData(335, "Direct Access")
+            .addData(310, "Email Marketing")
+            .addData(234, "Affiliate Ads")
+            .addData(135, "Video Ads")
+            .addData(1548, "Search Engines");
 
-final List<String> center = Arrays.asList("50%", "60%");
-final PieChart p = PieChart.builder()
-        .options(ChartOption.builder()
-        .animation(false)
-        .title(Title.builder()
-        .text(chartTitle)
-        .right("20")
-        .build())
-        .legend(Legend.builder()
-        .orient("vertical")
-        .left("left")
-        .data(legendData)
-        .build())
-        .build()
-        .addSeries(PieChartSeriesOption.builder()
-        .name(seriesName)
-        .radius("55%")
-        .center(center)
-        .data(dataHelper.get())
-        .build())
-        )
-        .build()
-        .addJSFunction(FuncStr.of(actionWithEchartsInstance))
-        .addListener("'click'", FuncStr.of(clickAlterFunc))
-        .addListener("'legendselectchanged'", FuncStr.of(legendClickAlterFunc))
-        .addListener("'mousemove'", FuncStr.of("{ dataIndex: 3 }"), FuncStr.of(mouseMoveAlterFunc));
+    final List<String> center = Arrays.asList("50%", "60%");
+    final PieChart p = PieChart.builder()
+            .options(ChartOption.builder()
+                    .animation(false)
+                    .title(Title.builder()
+                            .text(chartTitle)
+                            .right("20")
+                            .build())
+                    .legend(Legend.builder()
+                            .orient("vertical")
+                            .left("left")
+                            .data(legendData)
+                            .build())
+                    .build()
+                    .addSeries(PieChartSeriesOption.builder()
+                            .name(seriesName)
+                            .radius("55%")
+                            .center(center)
+                            .data(dataHelper.get())
+                            .build())
+            )
+            .build()
+            .addJSFunction(FuncStr.of(actionWithEchartsInstance))
+            .addListener("'click'", FuncStr.of(clickAlterFunc))
+            .addListener("'legendselectchanged'", FuncStr.of(legendClickAlterFunc))
+            .addListener("'mousemove'", FuncStr.of("{ dataIndex: 3 }"), FuncStr.of(mouseMoveAlterFunc));
 
         Canvas.builder()
-        .addCharts(p)
+                .addCharts(p)
         .build()
         .renderTo(new File("dynamic-pie.html"));
 ```
