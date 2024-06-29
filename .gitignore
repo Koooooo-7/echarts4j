@@ -67,6 +67,7 @@ bin/
 .DS_Store
 /.idea/
 *.html
-/echarts4j-snapshot-playwright/
 
-
+/echarts4j-snapshot-playwright/*.jpg
+/echarts4j-snapshot-playwright/*.png
+/echarts4j-snapshot-playwright/*.jpeg

@@ -1,0 +1,24 @@
+ext {
+    lang3Version = "3.14.0"
+    freeMakerVersion = "2.3.33"
+    lombokVersion = "1.18.32"
+    jsonPVersion = "1.17.2"
+    jaywayVersion = "2.9.0"
+}
+
+description ':doughnut: An inevitable charts library for Java.'
+
+dependencies {
+    implementation "org.apache.commons:commons-lang3:$lang3Version"
+    implementation "org.freemarker:freemarker:$freeMakerVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.jsoup:jsoup:$jsonPVersion"
+    testImplementation "com.jayway.jsonpath:json-path:$jaywayVersion"
+
+}
+
+jar {
+    baseName 'echarts4j'
+}

@@ -2,12 +2,21 @@ import java.text.SimpleDateFormat
 
 plugins {
     id 'java'
-    id 'maven-publish'
 }
 
-group 'com.github.koooooo7'
-version project.echarts4jVersion
-description ':doughnut: An inevitable charts library for Java.'
+allprojects {
+    group 'com.github.koooooo7.echarts4j'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor 0, "minutes"
+    }
+}
+
 
 ext {
     lombokVersion = "1.18.32"
@@ -20,66 +29,65 @@ ext {
     jaywayVersion = "2.9.0"
 }
 
-repositories {
-    mavenCentral()
-}
+subprojects {
 
-dependencies {
-    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
-    implementation "cglib:cglib:$cglibVersion"
-    implementation "org.apache.commons:commons-lang3:$lang3Version"
-    implementation "org.freemarker:freemarker:$freeMakerVersion"
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
-    compileOnly "org.projectlombok:lombok:$lombokVersion"
-    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    version project.echarts4jVersion
 
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testImplementation "org.jsoup:jsoup:$jsonPVersion"
-    testImplementation "com.jayway.jsonpath:json-path:$jaywayVersion"
-
-}
-
-jar {
-    manifest {
-        attributes(
-                'Built-By': 'KoyZhuang',
-                'Build-LICENSE': 'MIT',
-                'Build-Version': project.echarts4jVersion,
-                'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
-        )
+    dependencies {
+        implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     }
-}
 
-
-test {
-    useJUnitPlatform()
-}
-
-publishing {
-    repositories {
-        mavenLocal()
+    jar {
+        manifest {
+            attributes(
+                    'Built-By': 'KoyZhuang',
+                    'Build-LICENSE': 'MIT',
+                    'Build-Version': project.echarts4jVersion,
+                    'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+            )
+        }
     }
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
 
-            pom {
-                name = 'echarts4j'
-                description = ":doughnut: An inevitable charts library for Java."
-                url = 'https://github.com/Koooooo-7/echarts4j'
-                licenses {
-                    license {
-                        name = 'MIT'
-                        url = 'https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE'
+
+    test {
+        useJUnitPlatform()
+    }
+
+    publishing {
+        repositories {
+            mavenLocal()
+        }
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+
+                pom {
+                    name = project.name
+//                    if (project.name == "echarts4j-project") {
+//                        artifactId = "echarts4j"
+//                    }
+                    description = ":doughnut: An inevitable charts library for Java."
+                    url = 'https://github.com/Koooooo-7/echarts4j'
+                    licenses {
+                        license {
+                            name = 'MIT'
+                            url = 'https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE'
+                        }
                     }
-                }
-                developer {
-                    id = 'Koooooo-7'
-                    name = 'KoyZhuang'
-                    email = 'koy@ko8e24.top'
+                    developer {
+                        id = 'Koooooo-7'
+                        name = 'KoyZhuang'
+                        email = 'koy@ko8e24.top'
+                    }
                 }
             }
         }
     }
+
 }
+
