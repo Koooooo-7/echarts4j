@@ -11,6 +11,15 @@ import java.io.Writer;
 
 public interface Render {
 
+    /**
+     * A simple render for Canvas with default output located {@code new File("echarts4j.html") }.
+     *
+     * @param canvas The {@link Canvas} instance
+     */
+    default void render(Canvas canvas) {
+        render(canvas, new File("echarts4j.html"));
+    }
+
     default void render(Canvas canvas, File file) {
         try (Writer writer = new FileWriter(file)) {
             render(canvas, writer);

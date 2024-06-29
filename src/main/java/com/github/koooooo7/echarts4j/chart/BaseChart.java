@@ -66,6 +66,10 @@ public abstract class BaseChart<T extends Chart<T>> extends Container implements
         return this;
     }
 
+    /**
+     * The postProcessor for chart to make sure all things is set in place.
+     * And <strong>it requires no side effect when call it multi times.</strong>
+     */
     @Override
     public void postProcessor() {
         configChartIdIfNecessary();

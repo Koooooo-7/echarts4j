@@ -2,11 +2,14 @@
 
 *🍩 An inevitable charts library for Java.*
 
+> Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can
+> be beaten. —— Neil Gaiman, Coraline
+
 TBH, I think use `Java` to build charts is a disaster
-which should be struggling in the explicit typed hell.
+which should be struggling in the explicit typed hell.  
 But it also makes me interest in how to make it close to the `loosely` (I don't mean
 that you put all things as pure `Object`s :dog:).
-After maintaining some other languages implementations of [Echarts](https://echarts.apache.org/), and know about much
+After more experience on [Echarts](https://echarts.apache.org/), and know about many
 tricks, I'm more curious about how to make it. Luckily, recently, time is available, so it comes here.
 
 ---
@@ -20,6 +23,7 @@ tricks, I'm more curious about how to make it. Luckily, recently, time is availa
 * Smooth builder APIs.
 * Highly configurable chart options.
 * Closely to the full Echarts functions.
+* Strong Extensibility.
 
 ---
 
