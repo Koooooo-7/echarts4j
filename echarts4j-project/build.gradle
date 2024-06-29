@@ -19,6 +19,6 @@ dependencies {
 
 }
 
-jar {
-    baseName 'echarts4j'
-}
+//jar {
+//    baseName 'echarts4j'
+//}

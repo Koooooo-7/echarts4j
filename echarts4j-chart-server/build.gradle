@@ -8,6 +8,6 @@ description ':doughnut: An extension for echarts4j for live update.'
 dependencies {
     // use the lib instead of JavaEE lib
     implementation "org.java-websocket:Java-WebSocket:$javaWebSocketVersion"
-    implementation "com.github.koooooo7:echarts4j:$project.echarts4jVersion"
+    implementation project(":echarts4j-project")
     implementation "cglib:cglib:$cglibVersion"
 }

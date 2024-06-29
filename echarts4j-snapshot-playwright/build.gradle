@@ -7,7 +7,7 @@ ext {
 description ':doughnut: An extension for echarts4j for image render.'
 
 dependencies {
-    implementation "com.github.koooooo7:echarts4j:${project.echarts4jVersion}"
+    implementation project(":echarts4j-project")
     implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     implementation "com.microsoft.playwright:playwright:$playwrightVersion"
 }
