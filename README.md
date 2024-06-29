@@ -5,12 +5,12 @@
 > Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can
 > be beaten. —— Neil Gaiman, Coraline
 
-TBH, I think use `Java` to build charts is a disaster
-which should be struggling in the explicit typed hell.  
-But it also makes me interest in how to make it close to the `loosely` (I don't mean
-that you put all things as pure `Object`s :dog:).
-After more experience on [Echarts](https://echarts.apache.org/), and know about many
-tricks, I'm more curious about how to make it. Luckily, recently, time is available, so it comes here.
+To be honest, I believe using `Java` to build charts is a disaster, as it often feels like struggling in the explicit
+typed hell, accompanied by lengthy lines of code.. However, it also piques my interest in finding ways to approach it
+with a more loosely coupled mindset (not just dumping
+everything as pure `Object`s 🐶). With increased experience in [Echarts](https://echarts.apache.org/) and discovering
+various tricks, I've become even more curious about the possibilities. Fortunately, I now have the time to delve into
+this further. *( contents polished by `ChartGPT-4`)*
 
 ---
 
