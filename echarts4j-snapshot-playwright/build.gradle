@@ -1,0 +1,13 @@
+ext {
+    playwrightVersion = "1.44.0"
+    jacksonVersion = "2.17.1"
+    junitVersion = "5.10.2"
+}
+
+description ':doughnut: An extension for echarts4j for image render.'
+
+dependencies {
+    implementation "com.github.koooooo7:echarts4j:${project.echarts4jVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.microsoft.playwright:playwright:$playwrightVersion"
+}
