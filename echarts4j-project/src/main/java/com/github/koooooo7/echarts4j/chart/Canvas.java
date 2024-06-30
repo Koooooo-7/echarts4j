@@ -121,7 +121,7 @@ public class Canvas {
          * @return the {@link CanvasBuilder} to do further operations.
          */
         @SuppressWarnings("unchecked")
-        public <T extends Chart<T>> CanvasBuilder updateChart(String chartId, Consumer<Optional<T>> chartModifier) {
+        public <T extends Chart<T>> CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<T>>> chartModifier) {
             chartModifier.accept(Optional.ofNullable((T) (canvas.getCharts().get(chartId))));
             return this;
         }

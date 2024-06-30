@@ -1,6 +1,7 @@
 package com.github.koooooo7.echarts4j.chart.server;
 
 
+import com.github.koooooo7.echarts4j.chart.BarChart;
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.LineChart;
 import com.github.koooooo7.echarts4j.option.ChartOption;
@@ -90,7 +91,67 @@ class SimpleChartServerRenderTest {
             Assertions.fail();
         }
 
-        // not stop the main process
+        // not stop the main process, local test
+//        live.await();
+    }
+
+    @Test
+    void shouldServerChart_WhenUseTheChartServer_Given2ChartAndCallTheRender() throws InterruptedException {
+        final String chartTitle = "My Live Update Chart";
+        final String seriesName = "seriesName";
+        final String seriesName2 = "seriesName2";
+        final String chartId = "cId";
+        final String chartId2 = "cId2";
+        final LineChart c = LineChart.builder()
+                .chartId(chartId)
+                .options(ChartOption.builder()
+                        .animation(false)
+                        .title(Title.builder()
+                                .text(chartTitle).build())
+                        .legend(Legend.builder().build())
+                        .xAxis(XAxis.builder()
+                                .data(x)
+                                .build())
+                        .yAxis(YAxis.builder().build())
+                        .build()
+                        .addSeries(ListChartSeriesOption.builder()
+                                .name(seriesName)
+                                .data(data1)
+                                .build())
+                )
+                .build();
+        final BarChart b = BarChart.builder()
+                .chartId(chartId2)
+                .options(ChartOption.builder()
+                        .animation(false)
+                        .title(Title.builder()
+                                .text(chartTitle).build())
+                        .legend(Legend.builder().build())
+                        .xAxis(XAxis.builder()
+                                .data(x)
+                                .build())
+                        .yAxis(YAxis.builder().build())
+                        .build()
+                        .addSeries(BarChartSeriesOption.builder()
+                                .name(seriesName2)
+                                .data(data2)
+                                .build())
+                )
+                .build();
+        final Canvas canvas = Canvas.builder()
+                .addCharts(c)
+                .addCharts(b)
+                .build();
+
+        try {
+            final Canvas boxed = DynamicChartLiveUpdater.liveUpdateBoxed(canvas, updater2(chartId, chartId2));
+            final Render render = boxed.extractRender();
+            render.render(boxed);
+        } catch (Exception e) {
+            Assertions.fail();
+        }
+
+        // not stop the main process, local test
 //        live.await();
     }
 
@@ -115,6 +176,45 @@ class SimpleChartServerRenderTest {
                 }
             }));
         }, 5, 5, TimeUnit.SECONDS);
+    }
+
+    private Consumer<Canvas> updater2(String chartId, String chartId2) {
+        return proxy -> scheduler.scheduleAtFixedRate(() -> {
+            // refresh data
+            proxy.asBuilder().updateChart(chartId, c1 -> c1.ifPresent(it -> {
+                setup();
+                final ChartOption chartOptions = it.getChartOptions();
+                final Title title = chartOptions.getTitle();
+                title.setSubtext("LastUpdateTime: " + LocalDateTime.now().format(DATE_TIME_FORMATTER));
+                boolean first = true;
+                final List<SeriesOption> series = chartOptions.getSeries();
+                for (SeriesOption so : series) {
+                    if (first) {
+                        so.setData(data1);
+                    } else {
+                        so.setData(data2);
+                    }
+                    first = false;
+
+                }
+            })).updateChart(chartId2, c1 -> c1.ifPresent(it -> {
+                setup();
+                final ChartOption chartOptions = it.getChartOptions();
+                final Title title = chartOptions.getTitle();
+                title.setSubtext("LastUpdateTime: " + LocalDateTime.now().format(DATE_TIME_FORMATTER));
+                boolean first = true;
+                final List<SeriesOption> series = chartOptions.getSeries();
+                for (SeriesOption so : series) {
+                    if (first) {
+                        so.setData(data1);
+                    } else {
+                        so.setData(data2);
+                    }
+                    first = false;
+
+                }
+            }));
+        }, 5, 1, TimeUnit.SECONDS);
     }
 
 }

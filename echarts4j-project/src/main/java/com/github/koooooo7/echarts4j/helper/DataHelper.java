@@ -5,7 +5,6 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
@@ -18,7 +17,7 @@ public class DataHelper {
     public static final String FIELD_VALUE = "value";
     private final List<String> dataModelFieldNames;
     private final List<Class<?>> dataModelFieldTypes;
-    private final List<LinkedHashMap<String, Object>> data = new LinkedList<>();
+    private final List<LinkedHashMap<String, Object>> data = new ArrayList<>();
 
 
     DataHelper(Builder builder) {

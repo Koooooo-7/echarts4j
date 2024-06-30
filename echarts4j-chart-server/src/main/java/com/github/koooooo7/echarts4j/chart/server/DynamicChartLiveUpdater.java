@@ -2,6 +2,8 @@ package com.github.koooooo7.echarts4j.chart.server;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.type.FuncStr;
+import com.github.koooooo7.echarts4j.util.ChartUtil;
+import com.github.koooooo7.echarts4j.util.JsonUtil;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -10,6 +12,8 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 
@@ -27,13 +31,17 @@ public class DynamicChartLiveUpdater {
                     "console.log(\"echarts4j live update setup!\");" +
                     "};\n" +
                     "\n" +
+                    "\n" +
                     "ws.onmessage = function(evt) {\n" +
-                    " %MY_ECHARTS%.setOption(JSON.parse(evt.data));" +
+                    "const data = JSON.parse(evt.data);" +
+                    "const option = data['%MY_ECHARTS%'];" +
+                    "option&&%MY_ECHARTS%.setOption(JSON.parse(option));" +
                     "};\n" +
+                    "\n" +
                     "\n" +
                     "ws.onclose = function(evt) {\n" +
                     "  console.log(\"Connection closed.\");\n" +
-                    "}; ";
+                    "};";
 
     public static Canvas liveUpdateBoxed(Canvas canvas, Consumer<Canvas> updater) {
         if (!websocketSetup) {
@@ -92,11 +100,16 @@ public class DynamicChartLiveUpdater {
             server.start();
             while (true) {
                 if (liveUpdateChangeFound) {
-                    target.getCharts().values().stream()
-                            .findFirst().ifPresent(s -> {
-                                server.broadcast(s.getOptions());
-                            });
-                    liveUpdateChangeFound = false;
+                    try {
+                        final Map<String, String> options = new HashMap<>();
+                        target.getCharts().forEach((id, c) -> {
+                            options.put(ChartUtil.getFullEchartsChartId(id), c.getOptions());
+                        });
+                        server.broadcast(JsonUtil.writeValueAsString(options));
+                    } catch (Exception ignore) {
+                    } finally {
+                        liveUpdateChangeFound = false;
+                    }
                 }
             }
         });

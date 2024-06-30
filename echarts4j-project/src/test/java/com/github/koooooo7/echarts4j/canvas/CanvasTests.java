@@ -28,7 +28,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Matcher;
@@ -230,7 +229,7 @@ class CanvasTests {
         final String legendFormatter = "'Legend {name}'";
         final String seriesName = "seriesName";
         final String seriesName2 = "seriesName2";
-        final LinkedList<String> chartTypes = new LinkedList<>();
+        final List<String> chartTypes = new ArrayList<>();
         chartTypes.add("line");
         chartTypes.add("bar");
         chartTypes.add("line");
@@ -249,7 +248,7 @@ class CanvasTests {
                         .build()
                         .addSeries(GenericSeriesOption.builder()
                                 .name(seriesName2)
-                                .type(chartTypes.pop())
+                                .type(chartTypes.remove(0))
                                 .data(data2)
                                 .build())
                 )
@@ -268,7 +267,7 @@ class CanvasTests {
                         .build()
                         .addSeries(GenericSeriesOption.builder()
                                 .name(seriesName)
-                                .type(chartTypes.pop())
+                                .type(chartTypes.remove(0))
                                 .data(data1)
                                 .build())
                 )

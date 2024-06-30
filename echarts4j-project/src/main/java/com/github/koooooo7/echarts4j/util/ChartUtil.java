@@ -12,8 +12,12 @@ public class ChartUtil {
     private static final String INSTANCE_PREFIX = "echarts4j_";
     private static final String INSTANCE_PLACEHOLDER = "%MY_ECHARTS%";
 
-    public static String injectInstance(String funcStr, Chart chart) {
+    public static String injectInstance(String funcStr, Chart<?> chart) {
         return funcStr.replaceAll(INSTANCE_PLACEHOLDER, INSTANCE_PREFIX + chart.getChartId());
+    }
+
+    public static String getFullEchartsChartId(String rawChartId) {
+        return INSTANCE_PREFIX + rawChartId;
     }
 
     public static String generateChartId() {

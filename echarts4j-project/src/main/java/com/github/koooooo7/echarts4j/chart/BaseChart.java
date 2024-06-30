@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -26,8 +26,8 @@ import java.util.stream.Collectors;
 public abstract class BaseChart<T extends Chart<T>> extends Container implements Chart<T> {
     private String chartId;
     private ChartOption options;
-    private final List<String> functions = new LinkedList<>();
-    private final List<Listener> listeners = new LinkedList<>();
+    private final List<String> functions = new ArrayList<>();
+    private final List<Listener> listeners = new ArrayList<>();
 
     @Override
     public T addJSFunction(FuncStr funcStr) {

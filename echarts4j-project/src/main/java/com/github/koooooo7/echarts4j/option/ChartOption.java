@@ -13,6 +13,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class ChartOption {
     private Object color;
     private Boolean animation;
     private Boolean useUTC;
-    private final List<SeriesOption> series = new LinkedList<>();
+    private final List<SeriesOption> series = new ArrayList<>();
 
     public final ChartOption addSeries(SeriesOption seriesOption) {
         series.add(seriesOption);
