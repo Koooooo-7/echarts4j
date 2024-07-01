@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts4j.option.embed;
+package com.github.koooooo7.echarts4j.option.series.embed;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.type.FuncStr;

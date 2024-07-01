@@ -1,12 +1,17 @@
 package com.github.koooooo7.echarts4j.chart.server;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
+import com.github.koooooo7.echarts4j.exception.RenderException;
+import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.github.koooooo7.echarts4j.util.ChartUtil;
 import com.github.koooooo7.echarts4j.util.JsonUtil;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import org.java_websocket.WebSocket;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
 
 import java.io.StringWriter;
 import java.io.Writer;
@@ -15,9 +20,8 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Consumer;
 
-public class DynamicChartLiveUpdater {
+public class ChartLiveUpdater {
     private static volatile boolean websocketSetup = false;
     private static volatile boolean liveUpdateChangeFound = false;
     private static final String DEFAULT_LIVE_UPDATE_HOST = "localhost";
@@ -43,7 +47,7 @@ public class DynamicChartLiveUpdater {
                     "  console.log(\"Connection closed.\");\n" +
                     "};";
 
-    public static Canvas liveUpdateBoxed(Canvas canvas, Consumer<Canvas> updater) {
+    public static LiveUpdatableCanvas liveUpdateBoxed(Canvas canvas) {
         if (!websocketSetup) {
             websocketSetup = true;
             setWebsocketSetup(canvas);
@@ -54,30 +58,49 @@ public class DynamicChartLiveUpdater {
         }
 
         if (Enhancer.isEnhanced(canvas.getClass())) {
-            return canvas;
+            return (LiveUpdatableCanvas) canvas;
         }
 
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(Canvas.class);
+        enhancer.setInterfaces(new Class[]{LiveUpdatableCanvas.class});
         enhancer.setCallback(new CanvasMonitor(canvas));
         Canvas proxy = (Canvas) enhancer.create();
-        updater.accept(proxy);
 
-        return proxy;
+        return (LiveUpdatableCanvas) proxy;
     }
 
     private static class CanvasMonitor implements MethodInterceptor {
         public CanvasMonitor(Canvas target) {
             this.target = target;
+            this.liveUpdatableWrapper = () -> target;
         }
 
+        private final LiveUpdatableCanvas liveUpdatableWrapper;
+        private volatile boolean setup = false;
         private final Canvas target;
 
         @Override
         public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-            // skip the render call
-            if (method.getName().contains("render")) {
+
+            if (method.getName().contains("liveUpdateChartModifier")) {
+                method.invoke(liveUpdatableWrapper, args);
+                return obj;
+            }
+
+            if (method.getName().contains("liveUpdateChartsModifier")) {
+                method.invoke(liveUpdatableWrapper, args);
+                return obj;
+            }
+
+            if (!method.getName().contains("emit")) {
                 return method.invoke(target, args);
+            }
+
+            if (!setup) {
+                setup = true;
+                final SimpleChartServerRender render = RenderProvider.getRender(SimpleChartServerRender.class);
+                render.render(target);
             }
 
             // try to render it to make sure it is updatable
@@ -89,7 +112,7 @@ public class DynamicChartLiveUpdater {
                 // not updatable
             }
 
-            return method.invoke(target, args);
+            return null;
         }
     }
 
@@ -136,5 +159,41 @@ public class DynamicChartLiveUpdater {
             return Integer.parseInt(port.trim());
         }
         return DEFAULT_LIVE_UPDATE_PORT;
+    }
+
+    static class LiveSocketServer extends WebSocketServer {
+
+        public LiveSocketServer(InetSocketAddress address) {
+            super(address);
+        }
+
+        @Override
+        public void onOpen(WebSocket conn, ClientHandshake handshake) {
+            // do nothing
+        }
+
+        @Override
+        public void onClose(WebSocket conn, int code, String reason, boolean remote) {
+            // do nothing
+        }
+
+        @Override
+        public void onMessage(WebSocket conn, String message) {
+            // do nothing
+        }
+
+        @Override
+        public void onError(WebSocket conn, Exception ex) {
+            if (conn != null) {
+                conn.close();
+            }
+            throw new RenderException(ex);
+        }
+
+        @Override
+        public void onStart() {
+            setConnectionLostTimeout(150);
+        }
+
     }
 }

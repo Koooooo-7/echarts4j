@@ -14,6 +14,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.net.InetSocketAddress;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.function.Supplier;
 
@@ -48,7 +49,7 @@ public class SimpleChartServerRender implements Render {
 
     @Override
     public int order() {
-        return 0;
+        return 20000;
     }
 
     @Override
@@ -101,11 +102,22 @@ public class SimpleChartServerRender implements Render {
     }
 
 
-    public static int getPort() {
+    private static int getPort() {
         final String port = System.getenv(DEFAULT_SERVER_PORT_CONFIG_KEY);
         if (Objects.nonNull(port)) {
             return Integer.parseInt(port.trim());
         }
         return DEFAULT_SERVER_PORT;
+    }
+
+    /**
+     * A handy method to block the main process exit
+     */
+    public static void on() {
+        try {
+            CountDownLatch latch = new CountDownLatch(1);
+            latch.await();
+        } catch (InterruptedException ignore) {
+        }
     }
 }

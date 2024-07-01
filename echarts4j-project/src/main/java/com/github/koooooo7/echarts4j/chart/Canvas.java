@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 @Data
@@ -123,6 +124,15 @@ public class Canvas {
         @SuppressWarnings("unchecked")
         public <T extends Chart<T>> CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<T>>> chartModifier) {
             chartModifier.accept(Optional.ofNullable((T) (canvas.getCharts().get(chartId))));
+            return this;
+        }
+
+        /**
+         * @param chartsModifier the chartsModifier to update all the added Charts.
+         * @return the {@link CanvasBuilder} to do further operations.
+         */
+        public CanvasBuilder updateCharts(BiConsumer<String, Chart<?>> chartsModifier) {
+            canvas.getCharts().forEach(chartsModifier);
             return this;
         }
 
