@@ -1,6 +1,8 @@
 package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.github.koooooo7.echarts4j.option.embedded.NameTextStyle;
+import com.github.koooooo7.echarts4j.option.embedded.NameTruncate;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
 import lombok.Builder;
@@ -36,16 +38,4 @@ public class XAxis {
     private Boolean silent;
     private Boolean triggerEvent;
 
-    @Data
-    @Builder
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @EmbedScope({XAxis.class, YAxis.class})
-    public static class NameTextStyle {
-    }
-
-    @Data
-    @Builder
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class NameTruncate {
-    }
 }

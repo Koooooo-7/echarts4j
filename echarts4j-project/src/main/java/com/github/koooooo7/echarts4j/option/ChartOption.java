@@ -10,6 +10,7 @@ import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
+import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
@@ -32,6 +33,9 @@ public class ChartOption {
     private Toolbox toolbox;
     private Object color;
     private Boolean animation;
+    private Integer animationThreshold;
+    private FuncStr animationDuration;
+    private FuncStr animationDelay;
     private Boolean useUTC;
     private final List<SeriesOption> series = new ArrayList<>();
 

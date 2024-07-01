@@ -14,13 +14,9 @@ import java.util.List;
 @Data
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class YAxis {
+public class RadiusAxis {
     private String id;
-    private Boolean show;
-    private Integer gridIndex;
-    private Boolean alignTicks;
-    private String position;
-    private Integer offset;
+    private Integer polarIndex;
     private String type;
     private String name;
     private String nameLocation;
@@ -28,6 +24,7 @@ public class YAxis {
     private NameTextStyle nameTextStyle;
     private NameTruncate nameTruncate;
     private Boolean inverse;
+    private Object boundaryGap;
     private FuncStr min;
     private FuncStr max;
     private Boolean scale;
@@ -35,6 +32,7 @@ public class YAxis {
     private Integer minInterval;
     private Integer maxInterval;
     private Integer interval;
+    private Integer logBase;
     private Boolean silent;
     private Boolean triggerEvent;
 
