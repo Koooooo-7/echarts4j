@@ -240,6 +240,7 @@ class SimpleChartServerRenderTest {
 
         try {
             final LiveUpdatableCanvas liveUpdatableCanvas = ChartLiveUpdater.liveUpdateBoxed(canvas);
+            // builtin scheduling
             scheduler.scheduleAtFixedRate(
                     () -> liveUpdatableCanvas.liveUpdateChart(chartId, cp -> cp.ifPresent(myChart -> {
                                 // refresh data
@@ -255,6 +256,7 @@ class SimpleChartServerRenderTest {
                             .emit(),
                     1, 5, TimeUnit.SECONDS);
 
+            // builtin scheduling
             liveUpdatableCanvas.liveUpdateChartScheduling(chartId2, cp -> cp.ifPresent(myChart -> {
                         // refresh data
                         setupData2();
@@ -268,19 +270,6 @@ class SimpleChartServerRenderTest {
                     }),
 
                     10, 10, TimeUnit.SECONDS).emit();
-            liveUpdatableCanvas.liveUpdateChartScheduling(chartId2, cp -> cp.ifPresent(myChart -> {
-                        // refresh data
-                        setupData2();
-                        final ChartOption chartOptions = myChart.getChartOptions();
-                        final Title title = chartOptions.getTitle();
-                        title.setSubtext("LastUpdateTime: " + LocalDateTime.now().format(DATE_TIME_FORMATTER));
-                        final List<SeriesOption> series = chartOptions.getSeries();
-                        for (SeriesOption so : series) {
-                            so.setData(data2);
-                        }
-                    }),
-
-                    35, 1, TimeUnit.SECONDS).emit();
         } catch (Exception e) {
             Assertions.fail();
         }
