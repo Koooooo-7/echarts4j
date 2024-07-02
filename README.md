@@ -24,8 +24,8 @@ this further. *( contents polished by `ChartGPT-4`)*
 * Highly configurable chart options.
 * Closely to the full Echarts functions.
 * Strong Extensibility.
-* Live update support for displaying. see []()
-* Snapshot for image render. see []()
+* Live update support for displaying. see [echarts4j-chart-server](./echarts4j-chart-server/README.md)
+* Snapshot for image render. see [echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)
 
 ---
 
