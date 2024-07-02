@@ -12,7 +12,13 @@
     <#list canvas.appendCssAssets as cssAsset>
     <link data-asset-type="echarts4j-custom-css-asset" href="${cssAsset?trim?no_esc}" rel="stylesheet">
     </#list>
-    <style> .container {display: flex;justify-content: center;align-items: center;} .item {margin: auto;} </style>
+
+    <#if canvas.layout == "center">
+        <style> .container {display: flex;justify-content: center;align-items: center;} .item {margin: auto;} </style>
+    </#if>
+    <#if canvas.layout == "none">
+<#--        placeholder for withou layout-->
+    </#if>
 </head>
 <body>
 

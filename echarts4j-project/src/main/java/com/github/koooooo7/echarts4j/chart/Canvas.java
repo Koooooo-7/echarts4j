@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 
 @Data
 public class Canvas {
+    private String layout = "center";
     private String title = "echarts4j";
     private String echartsAsset = "https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js";
     private List<String> appendJsAssets = new ArrayList<>();
@@ -94,6 +95,13 @@ public class Canvas {
 
         public CanvasBuilder title(String title) {
             canvas.setTitle(title);
+            return this;
+        }
+
+        public CanvasBuilder layout(String layout) {
+            if (StringUtils.isNotEmpty(layout)) {
+                canvas.setLayout(layout);
+            }
             return this;
         }
 
