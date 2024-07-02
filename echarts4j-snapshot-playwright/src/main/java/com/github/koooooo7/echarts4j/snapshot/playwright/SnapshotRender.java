@@ -23,6 +23,11 @@ public class SnapshotRender implements Render {
     private Render previousRender;
 
     @Override
+    public void render(Canvas canvas) {
+        render(canvas, new File("echarts4j.png"));
+    }
+
+    @Override
     public void render(Canvas canvas, File file) {
         renderSnapshot(canvas, file);
     }
@@ -51,7 +56,7 @@ public class SnapshotRender implements Render {
         }
 
         String currentImgSuffix = fileName.substring(lastDotIndex + 1);
-        if (!validSnapshotSuffix.contains(currentImgSuffix)) {
+        if (!validSnapshotSuffix.contains(currentImgSuffix.toLowerCase())) {
             throw new IllegalArgumentException("Only support the valid image format:" + validSnapshotSuffix);
         }
         try (Playwright playwright = Playwright.create();
@@ -73,7 +78,6 @@ public class SnapshotRender implements Render {
             if (html.exists()) {
                 final boolean ignore = html.delete();
             }
-
         }
     }
 }
