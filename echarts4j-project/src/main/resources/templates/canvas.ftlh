@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="echarts4j - an inevitable charts library for Java.">
     <title>${canvas.title}</title>
     <script data-asset-type="echarts4j-echarts-asset" src="${canvas.echartsAsset?no_esc}" ></script>
     <#list canvas.appendJsAssets as jsAsset>

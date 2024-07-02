@@ -24,10 +24,54 @@ this further. *( contents polished by `ChartGPT-4`)*
 * Highly configurable chart options.
 * Closely to the full Echarts functions.
 * Strong Extensibility.
+* Live update support for displaying. see []()
+* Snapshot for image render. see []()
 
 ---
 
-### 📝 Usage
+### 📝 RunBook
+
+In a nutshell, it generates [Echarts](https://echarts.apache.org/) options for the Echarts instance.
+If you already familiar with [Echarts](https://echarts.apache.org/), you can quickly dive in.
+
+- Take a quick look at the [Echarts Demos](https://echarts.apache.org/examples/en/index.html) to find what you need.
+- Refer to the available [Echarts Options](https://echarts.apache.org/en/option.html#title) to understand how to
+  configure.  
+  (If it is missing in `echarts4j`, feel free to raise an Issue/PR :rocket:)
+
+In general, there are three key aspects to understand about building an Echarts Chart:
+
+- The `Canvas`, which contains all the charts and resources (`js, css...`), functioning similarly to an HTML page by
+  default.
+- The `Chart`, representing a Chart instance, with generic chart configurations, such as Title, Toolbox, and more.
+- The `Series`, which resides within the Charts, where each type of Series indicates the underlying chart type.
+
+```
+|————————————  
+|  Canvas   |  
+|           |  
+|  ——————   |  
+|  | Chart  |  
+|  |  ————  |  
+|  |    |Series type=Bar |
+|  |  ————  |  
+|  |    |Series type=Line| 
+|       (overlap different kinds of charts in one Chart)
+|  |  ————  |  
+|  |    |Series ... | 
+|  |  ————  |  
+|  ——————   |
+| Charts...|
+|  ——————   |
+|  ——————   |
+|  ——————   |
+ ———————————
+
+```
+
+---
+
+### ShowCase
 
 > Basic Chart
 

@@ -21,6 +21,7 @@ import java.util.function.Supplier;
 public class SimpleChartServerRender implements Render {
     private Render previousRender;
     private static volatile boolean setup = false;
+    private static final Object SERVER_SETUP_LOCK = new Object();
     // not thread safe
     private static Writer writer;
     private static final String DEFAULT_SERVER_PORT_CONFIG_KEY = "ECHARTS4J_CHART_SERVER_PORT";
@@ -61,21 +62,27 @@ public class SimpleChartServerRender implements Render {
         writer = wr;
         try {
             if (!setup) {
-                setup = true;
-                final Thread t = new Thread(() -> {
-                    try {
-                        HttpServer server;
-                        server = HttpServer.create(new InetSocketAddress(getPort()), 0);
-                        server.createContext("/", new ChartServerHandler(() -> writer));
-                        server.setExecutor(Executors.newFixedThreadPool(10));
-                        server.start();
-                        System.out.println("SimplyChartServer listen on port: " + getPort());
-                    } catch (IOException e) {
-                        throw new RenderException(e);
+                synchronized (SERVER_SETUP_LOCK) {
+                    if (setup) {
+                        return;
                     }
-                });
-                t.setDaemon(true);
-                t.start();
+                    final Thread t = new Thread(() -> {
+                        try {
+                            HttpServer server;
+                            server = HttpServer.create(new InetSocketAddress(getPort()), 0);
+                            server.createContext("/", new ChartServerHandler(() -> writer));
+                            server.setExecutor(Executors.newFixedThreadPool(10));
+                            server.start();
+                            System.out.println("SimplyChartServer listen on port: " + getPort());
+                        } catch (IOException e) {
+                            throw new RenderException(e);
+                        }
+                    });
+                    t.setDaemon(true);
+                    t.start();
+                    setup = true;
+                }
+
             }
         } catch (Exception e) {
             throw new RenderException(e);

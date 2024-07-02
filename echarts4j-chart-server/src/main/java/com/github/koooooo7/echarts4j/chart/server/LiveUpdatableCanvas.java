@@ -3,20 +3,33 @@ package com.github.koooooo7.echarts4j.chart.server;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.Chart;
+import com.github.koooooo7.echarts4j.exception.RenderException;
 
 import java.util.Optional;
-import java.util.function.BiConsumer;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
+@FunctionalInterface
 public interface LiveUpdatableCanvas {
 
-    default <T extends Chart<T>> LiveUpdatableCanvas liveUpdateChartModifier(String chartId, Consumer<Optional<Chart<T>>> modifier) {
+    default LiveUpdatableCanvas liveUpdateChart(String chartId, Consumer<Optional<Chart<?>>> modifier) {
         getTarget().asBuilder().updateChart(chartId, modifier).build();
         return this;
     }
 
-    default <T extends Chart<T>> LiveUpdatableCanvas liveUpdateChartsModifier(BiConsumer<String, Chart<?>> chartsModifier) {
-        getTarget().asBuilder().updateCharts(chartsModifier).build();
+    default LiveUpdatableCanvas liveUpdateChartScheduling(String chartId,
+                                                          Consumer<Optional<Chart<?>>> modifier,
+                                                          long initialDelay,
+                                                          long period,
+                                                          TimeUnit unit) {
+        LiveUpdateScheduler.register(() -> {
+            try {
+                getTarget().asBuilder().updateChart(chartId, modifier).build();
+                emit();
+            } catch (Exception ex) {
+                throw new RenderException(ex);
+            }
+        }, initialDelay, period, unit);
         return this;
     }
 

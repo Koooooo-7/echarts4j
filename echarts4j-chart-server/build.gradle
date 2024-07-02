@@ -1,6 +1,5 @@
 ext {
     javaWebSocketVersion = "1.5.6"
-    cglibVersion = "3.3.0"
 }
 
 description ':doughnut: An extension for echarts4j for live update.'
@@ -9,5 +8,4 @@ dependencies {
     // use the lib instead of JavaEE lib
     implementation "org.java-websocket:Java-WebSocket:$javaWebSocketVersion"
     implementation project(":echarts4j-project")
-    implementation "cglib:cglib:$cglibVersion"
 }

@@ -30,6 +30,15 @@ public class Canvas {
     Canvas() {
     }
 
+    /**
+     * A handy method to quick render out charts to default canvas.
+     *
+     * @return the {@link Canvas} instance for further operations.
+     */
+    public Canvas render() {
+        RenderProvider.get().render(this);
+        return this;
+    }
 
     /**
      * A handy method to quick render out charts.
@@ -118,12 +127,11 @@ public class Canvas {
         /**
          * @param chartId       the chartId which user preset on {@link Chart} when addChart.
          * @param chartModifier the chartModifier to update the Chart.
-         * @param <T>           the Chart instance type.
          * @return the {@link CanvasBuilder} to do further operations.
          */
-        @SuppressWarnings("unchecked")
-        public <T extends Chart<T>> CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<T>>> chartModifier) {
-            chartModifier.accept(Optional.ofNullable((T) (canvas.getCharts().get(chartId))));
+        public CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<?>>> chartModifier) {
+            chartModifier.accept(Optional.ofNullable((canvas.getCharts().get(chartId))));
+            Optional.ofNullable(canvas.getCharts().get(chartId)).ifPresent(Chart::postProcessor);
             return this;
         }
 
@@ -132,7 +140,10 @@ public class Canvas {
          * @return the {@link CanvasBuilder} to do further operations.
          */
         public CanvasBuilder updateCharts(BiConsumer<String, Chart<?>> chartsModifier) {
-            canvas.getCharts().forEach(chartsModifier);
+            canvas.getCharts().forEach((id, chart) -> {
+                chartsModifier.accept(id, chart);
+                chart.postProcessor();
+            });
             return this;
         }
 

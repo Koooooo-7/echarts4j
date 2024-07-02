@@ -2,26 +2,25 @@ package com.github.koooooo7.echarts4j.chart.server;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.exception.RenderException;
-import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.github.koooooo7.echarts4j.util.ChartUtil;
 import com.github.koooooo7.echarts4j.util.JsonUtil;
-import net.sf.cglib.proxy.Enhancer;
-import net.sf.cglib.proxy.MethodInterceptor;
-import net.sf.cglib.proxy.MethodProxy;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
-import java.io.StringWriter;
-import java.io.Writer;
-import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class ChartLiveUpdater {
+public final class ChartLiveUpdater {
+    private ChartLiveUpdater() {
+    }
+
+    // global shared lock cross Canvas
+    private static final Object UPDATE_LOCK = new Object();
+    private static final Object WEB_SOCKET_SETUP_LOCK = new Object();
     private static volatile boolean websocketSetup = false;
     private static volatile boolean liveUpdateChangeFound = false;
     private static final String DEFAULT_LIVE_UPDATE_HOST = "localhost";
@@ -49,89 +48,64 @@ public class ChartLiveUpdater {
 
     public static LiveUpdatableCanvas liveUpdateBoxed(Canvas canvas) {
         if (!websocketSetup) {
-            websocketSetup = true;
-            setWebsocketSetup(canvas);
-            canvas.getCharts().values().forEach(c -> {
-                c.addJSFunction(FuncStr.of(getLiveUpdateJS()));
-                c.postProcessor();
-            });
+            synchronized (WEB_SOCKET_SETUP_LOCK) {
+                setWebsocketSetup(canvas);
+                websocketSetup = true;
+            }
+            canvas
+                    .asBuilder()
+                    .updateCharts((id, chart) -> chart.addJSFunction(FuncStr.of(getLiveUpdateJS())))
+                    .build();
         }
 
-        if (Enhancer.isEnhanced(canvas.getClass())) {
-            return (LiveUpdatableCanvas) canvas;
-        }
+        return new LiveUpdatableCanvas() {
+            private volatile boolean setup = false;
 
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(Canvas.class);
-        enhancer.setInterfaces(new Class[]{LiveUpdatableCanvas.class});
-        enhancer.setCallback(new CanvasMonitor(canvas));
-        Canvas proxy = (Canvas) enhancer.create();
-
-        return (LiveUpdatableCanvas) proxy;
-    }
-
-    private static class CanvasMonitor implements MethodInterceptor {
-        public CanvasMonitor(Canvas target) {
-            this.target = target;
-            this.liveUpdatableWrapper = () -> target;
-        }
-
-        private final LiveUpdatableCanvas liveUpdatableWrapper;
-        private volatile boolean setup = false;
-        private final Canvas target;
-
-        @Override
-        public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-
-            if (method.getName().contains("liveUpdateChartModifier")) {
-                method.invoke(liveUpdatableWrapper, args);
-                return obj;
+            @Override
+            public Canvas getTarget() {
+                return canvas;
             }
 
-            if (method.getName().contains("liveUpdateChartsModifier")) {
-                method.invoke(liveUpdatableWrapper, args);
-                return obj;
-            }
+            @Override
+            public void emit() {
+                synchronized (UPDATE_LOCK) {
+                    if (!setup) {
+                        canvas.render();
+                        setup = true;
+                    }
 
-            if (!method.getName().contains("emit")) {
-                return method.invoke(target, args);
+                    // render it to make sure it is updatable and sync the latest statue
+                    try {
+                        canvas.render();
+                        liveUpdateChangeFound = true;
+                    } catch (Exception ignore) {
+                        // not updatable
+                    }
+                }
             }
-
-            if (!setup) {
-                setup = true;
-                final SimpleChartServerRender render = RenderProvider.getRender(SimpleChartServerRender.class);
-                render.render(target);
-            }
-
-            // try to render it to make sure it is updatable
-            try (Writer wr = new StringWriter()) {
-                Canvas c = (Canvas) obj;
-                c.renderTo(wr);
-                liveUpdateChangeFound = true;
-            } catch (Exception ignore) {
-                // not updatable
-            }
-
-            return null;
-        }
+        };
     }
 
     private static void setWebsocketSetup(Canvas target) {
+        if (websocketSetup) {
+            return;
+        }
         Thread t = new Thread(() -> {
             final LiveSocketServer server =
                     new LiveSocketServer(new InetSocketAddress(getHost(), getPort()));
             server.start();
             while (true) {
                 if (liveUpdateChangeFound) {
-                    try {
-                        final Map<String, String> options = new HashMap<>();
-                        target.getCharts().forEach((id, c) -> {
-                            options.put(ChartUtil.getFullEchartsChartId(id), c.getOptions());
-                        });
-                        server.broadcast(JsonUtil.writeValueAsString(options));
-                    } catch (Exception ignore) {
-                    } finally {
-                        liveUpdateChangeFound = false;
+                    synchronized (UPDATE_LOCK) {
+                        try {
+                            final Map<String, String> options = new HashMap<>();
+                            target.getCharts()
+                                    .forEach((id, chart) -> options.put(ChartUtil.getFullEchartsChartId(id), chart.getOptions()));
+                            server.broadcast(JsonUtil.writeValueAsString(options));
+                        } catch (Exception ignore) {
+                        } finally {
+                            liveUpdateChangeFound = false;
+                        }
                     }
                 }
             }
