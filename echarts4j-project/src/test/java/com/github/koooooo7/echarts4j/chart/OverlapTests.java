@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.ListChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +53,7 @@ public class OverlapTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
@@ -108,7 +107,7 @@ public class OverlapTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName2)
                                 .data(data1)
                                 .build())

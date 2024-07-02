@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.ListChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;
@@ -66,11 +66,11 @@ public class LineChartTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())

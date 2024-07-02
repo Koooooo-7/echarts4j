@@ -10,7 +10,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.ListChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -97,7 +97,7 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
@@ -137,7 +137,7 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
@@ -207,7 +207,7 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())

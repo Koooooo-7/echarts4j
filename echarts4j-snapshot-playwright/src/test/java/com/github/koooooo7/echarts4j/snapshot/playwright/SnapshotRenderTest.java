@@ -8,7 +8,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.ListChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,7 @@ class SnapshotRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(LineChartSeriesOption.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())

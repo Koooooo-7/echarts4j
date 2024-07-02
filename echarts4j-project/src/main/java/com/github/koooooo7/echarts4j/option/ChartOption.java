@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.koooooo7.echarts4j.option.chart.Grid;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
+import com.github.koooooo7.echarts4j.option.chart.Radar;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.Tooltip;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
@@ -29,6 +30,7 @@ public class ChartOption {
     private XAxis xAxis;
     @JsonProperty("yAxis")
     private YAxis yAxis;
+    private Radar radar;
     private Tooltip tooltip;
     private Toolbox toolbox;
     private Object color;

@@ -13,7 +13,7 @@ import java.util.List;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class ListChartSeriesOption extends GenericSeriesOption implements SeriesOption {
+public class LineChartSeriesOption extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
     private String type = ChartType.Line.getType();
     private List<?> data;
