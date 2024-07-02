@@ -56,8 +56,8 @@ A handy way is placing `SimpleChartServerRender.on();` on the last.
 
 ## Live Update
 
-> It will do websocket on `localhost:9493`.
-> Use the `ECHARTS4J_CS_LIVE_UPDATE_HOST` env param to change the host.
+> It will do websocket on `localhost:9493`.  
+> Use the `ECHARTS4J_CS_LIVE_UPDATE_HOST` env param to change the host.  
 > Use the `ECHARTS4J_CS_LIVE_UPDATE_PORT` env param to change the port.
 
 ```
