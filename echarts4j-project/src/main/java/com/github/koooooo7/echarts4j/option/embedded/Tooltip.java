@@ -13,4 +13,5 @@ public class Tooltip {
     private FuncStr formatter;
     private FuncStr valueFormatter;
     private Integer padding;
+    private TextStyle textStyle;
 }

@@ -19,20 +19,5 @@ public class RadarChartSeriesOption extends GenericSeriesOption implements Serie
     private List<?> data;
 
 
-    @Data
-    @SuperBuilder
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class RadarDataItem {
-        private String name;
-        private Integer value;
-        private String groupId;
-        private String childGroupId;
-        private String symbol;
-        private Object symbolSize;
-        private Integer symbolRotate;
-        private Boolean symbolKeepAspect;
-        private List<?> symbolOffset;
-
-    }
 
 }

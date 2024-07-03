@@ -20,6 +20,7 @@ public enum ChartType {
     Pie("pie"),
     Scatter("scatter"),
     EffectScatter("effectScatter"),
-    Radar("radar");
+    Radar("radar"),
+    Sunburst("sunburst");
     private final String type;
 }

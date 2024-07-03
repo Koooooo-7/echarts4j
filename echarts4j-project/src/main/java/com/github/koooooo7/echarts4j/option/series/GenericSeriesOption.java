@@ -2,6 +2,11 @@ package com.github.koooooo7.echarts4j.option.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.chart.ChartType;
+import com.github.koooooo7.echarts4j.option.embedded.AreaStyle;
+import com.github.koooooo7.echarts4j.option.embedded.Emphasis;
+import com.github.koooooo7.echarts4j.option.embedded.ItemStyle;
+import com.github.koooooo7.echarts4j.option.embedded.Label;
+import com.github.koooooo7.echarts4j.option.embedded.LineStyle;
 import com.github.koooooo7.echarts4j.option.embedded.TextStyle;
 import com.github.koooooo7.echarts4j.option.embedded.Tooltip;
 import com.github.koooooo7.echarts4j.type.FuncStr;
@@ -37,6 +42,11 @@ public class GenericSeriesOption implements SeriesOption {
     private Boolean connectNulls;
     private Boolean clip;
     private Boolean show;
+    private Label label;
+    private ItemStyle itemStyle;
+    private LineStyle lineStyle;
+    private AreaStyle areaStyle;
+    private Emphasis emphasis;
     private Object data;
     private Boolean large;
     private Integer largeThreshold;

@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AreaStyle {
-    private String color;
-    private String origin;
+public class Emphasis {
+    private Label label;
+    private ItemStyle itemStyle;
 }

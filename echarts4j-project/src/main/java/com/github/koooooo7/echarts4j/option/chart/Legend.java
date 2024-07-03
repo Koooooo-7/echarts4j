@@ -38,6 +38,7 @@ public class Legend {
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ItemStyle {
+        private FuncStr color;
 
     }
 
@@ -45,6 +46,9 @@ public class Legend {
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class LineStyle {
+        private String color;
+        private Integer width;
+        private FuncStr type;
 
     }
 
