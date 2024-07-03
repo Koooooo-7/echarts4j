@@ -4,7 +4,9 @@ package com.github.koooooo7.echarts4j.chart;
 import com.github.koooooo7.echarts4j.exception.ChartException;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -77,6 +79,24 @@ public class Canvas {
         return new CanvasBuilder(this);
     }
 
+    private void addJsAsset(String jsAsset) {
+        if (appendJsAssets.contains(jsAsset)) {
+            return;
+        }
+
+        appendJsAssets.add(jsAsset);
+
+    }
+
+    private void addCssAsset(String cssAsset) {
+        if (appendCssAssets.contains(cssAsset)) {
+            return;
+        }
+
+        appendCssAssets.add(cssAsset);
+
+    }
+
     private void registerChart(String chartId, Chart<?> chart) {
         charts.putIfAbsent(chartId, chart);
     }
@@ -98,20 +118,19 @@ public class Canvas {
             return this;
         }
 
-        public CanvasBuilder layout(String layout) {
-            if (StringUtils.isNotEmpty(layout)) {
-                canvas.setLayout(layout);
-            }
+        public CanvasBuilder layout(CanvasLayout layout) {
+            canvas.setLayout(layout.getLayout());
             return this;
         }
 
         public CanvasBuilder appendJSAssets(String... jsAsset) {
             canvas.appendJsAssets.addAll(Arrays.asList(jsAsset));
+            Arrays.stream(jsAsset).forEach(canvas::addJsAsset);
             return this;
         }
 
-        public CanvasBuilder appendCssAssets(String... jsAsset) {
-            canvas.appendCssAssets.addAll(Arrays.asList(jsAsset));
+        public CanvasBuilder appendCssAssets(String... cssAsset) {
+            Arrays.stream(cssAsset).forEach(canvas::addCssAsset);
             return this;
         }
 
@@ -159,6 +178,15 @@ public class Canvas {
             return canvas;
         }
 
+    }
+
+    @AllArgsConstructor
+    @Getter
+    public enum CanvasLayout {
+        NONE("none"),
+        Center("center"),
+        ;
+        private final String layout;
     }
 
 

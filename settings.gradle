@@ -2,4 +2,5 @@ rootProject.name = 'echarts4j'
 include 'echarts4j-project'
 include 'echarts4j-chart-server'
 include 'echarts4j-snapshot-playwright'
+include 'echarts4j-3rd-charts'
 

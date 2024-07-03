@@ -71,7 +71,7 @@ In general, there are three key aspects to understand about building an Echarts 
 
 ---
 
-### ShowCase
+### 📊 ShowCase
 
 > Basic Chart
 
@@ -227,13 +227,17 @@ In general, there are three key aspects to understand about building an Echarts 
 
 ---
 
-### 💡 Contribution
+### 🚀 Contribution
 
 - New feature and bug fix are both great.
 - Issue driven or PR driven is better.
 - Options enrichment is highly welcome.
 
 ---
+
+### 🎉 Special Thanks
+
+Gratitude to all outstanding projects/libraries for their contributions in echarts4j.
 
 ### 📃 License
 

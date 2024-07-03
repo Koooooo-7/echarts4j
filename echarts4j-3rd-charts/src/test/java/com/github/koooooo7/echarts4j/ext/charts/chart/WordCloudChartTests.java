@@ -1,18 +1,20 @@
-package com.github.koooooo7.echarts4j.chart;
+package com.github.koooooo7.echarts4j.ext.charts.chart;
 
+import com.github.koooooo7.echarts4j.ext.charts.Enhanced3rdChartsCanvas;
+import com.github.koooooo7.echarts4j.ext.charts.series.WordCloudChartSeries;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeriesOption;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class PieChartTests {
+
+class WordCloudChartTests {
 
     @Test
-    void shouldGeneratePieChart_WhenCallThePieChartConfig_GivenNecessaryConfigs() {
+    void shouldGenerateWordCloudChart_WhenCallTheChartConfig_GivenNecessaryConfigs() {
         final List<LinkedHashMap<String, Object>> data = DataHelper.create()
                 .addValueField(Integer.class)
                 .addNameField().build()
@@ -22,17 +24,17 @@ public class PieChartTests {
                 .addData(484, "Union Ads")
                 .addData(300, "Video Ads")
                 .get();
-        Canvas.builder()
-                .layout(Canvas.CanvasLayout.NONE)
-                .addCharts(PieChart.builder()
+
+        Enhanced3rdChartsCanvas.builder()
+                .addCharts(WordCloudChart.builder()
                         .options(ChartOption.builder()
-                                .title(Title.builder().text("Pie Chart").build())
+                                .title(Title.builder().text("WordCloud Basic").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
-                                        .data(data).build()))
-                        .build())
-                .build()
+                                .addSeries(WordCloudChartSeries.builder()
+                                        .data(data).build())
+                        ).build()).build()
                 .render();
 
     }
+
 }

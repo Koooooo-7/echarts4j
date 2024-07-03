@@ -1,0 +1,13 @@
+ext {
+    cglibVersion = "3.3.0"
+    lombokVersion = "1.18.32"
+}
+
+description ':doughnut: An extension for echarts4j for 3rd charts.'
+
+dependencies {
+    implementation project(":echarts4j-project")
+    implementation "cglib:cglib:$cglibVersion"
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
