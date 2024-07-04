@@ -14,7 +14,9 @@ dependencies {
 
 // for higher JDK compatibility
 test {
-    doFirst {
-        jvmArgs += "--add-opens=java.base/java.lang=ALL-UNNAMED"
+    if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
+        doFirst {
+            jvmArgs += "--add-opens=java.base/java.lang=ALL-UNNAMED"
+        }
     }
 }
