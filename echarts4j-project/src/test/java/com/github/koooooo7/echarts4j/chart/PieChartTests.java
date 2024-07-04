@@ -3,7 +3,7 @@ package com.github.koooooo7.echarts4j.chart;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
@@ -28,7 +28,7 @@ public class PieChartTests {
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Pie Chart").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
+                                .addSeries(PieChartSeries.builder()
                                         .data(data).build()))
                         .build())
                 .build()

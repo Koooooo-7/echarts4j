@@ -13,12 +13,10 @@ import java.util.List;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class LineChartSeriesOption extends GenericSeriesOption implements SeriesOption {
+public class SunburstChartSeries extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
-    private String type = ChartType.Line.getType();
+    private String type = ChartType.Sunburst.getType();
     private List<?> data;
-
-
 
 
 }

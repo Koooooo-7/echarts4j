@@ -2,9 +2,6 @@ package com.github.koooooo7.echarts4j.option.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.chart.ChartType;
-import com.github.koooooo7.echarts4j.option.embedded.Emphasis;
-import com.github.koooooo7.echarts4j.option.embedded.ItemStyle;
-import com.github.koooooo7.echarts4j.option.embedded.Label;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,10 +13,12 @@ import java.util.List;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class SunburstChartSeriesOption extends GenericSeriesOption implements SeriesOption {
+public class LineChartSeries extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
-    private String type = ChartType.Sunburst.getType();
+    private String type = ChartType.Line.getType();
     private List<?> data;
+
+
 
 
 }

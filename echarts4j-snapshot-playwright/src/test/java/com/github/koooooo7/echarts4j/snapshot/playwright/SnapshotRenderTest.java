@@ -2,19 +2,23 @@ package com.github.koooooo7.echarts4j.snapshot.playwright;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.LineChart;
+import com.github.koooooo7.echarts4j.chart.PieChart;
+import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.BarChartSeries;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeries;
+import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -38,6 +42,23 @@ class SnapshotRenderTest {
 
     @Test
     void shouldGeneratePNG_WhenCallTheRender_GivenSnapshotRender() {
+        final List<LinkedHashMap<String, Object>> data = DataHelper.create()
+                .addValueField(Integer.class)
+                .addNameField().build()
+                .addData(1048, "Search Engine")
+                .addData(735, "Direct")
+                .addData(580, "Email")
+                .addData(484, "Union Ads")
+                .addData(300, "Video Ads")
+                .get();
+        final PieChart pieChart = PieChart.builder()
+                .options(ChartOption.builder()
+                        .animation(false)
+                        .title(Title.builder().text("Pie Chart").build())
+                        .build()
+                        .addSeries(PieChartSeries.builder()
+                                .data(data).build()))
+                .build();
         final String chartTitle = "My Overlap Charts";
         final String seriesName = "seriesName";
         final String seriesName2 = "seriesName2";
@@ -52,11 +73,11 @@ class SnapshotRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -67,6 +88,7 @@ class SnapshotRenderTest {
         try {
             Canvas.builder()
                     .addCharts(c)
+                    .addCharts(pieChart)
                     .build()
                     .renderTo(target);
         } catch (Exception e) {

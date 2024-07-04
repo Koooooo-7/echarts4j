@@ -9,8 +9,8 @@ import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.BarChartSeries;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeries;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -97,11 +97,11 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -137,11 +137,11 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -207,7 +207,7 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
@@ -227,7 +227,7 @@ class SimpleChartServerRenderTest {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())

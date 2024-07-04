@@ -2,6 +2,7 @@ package com.github.koooooo7.echarts4j.option;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.koooooo7.echarts4j.option.chart.DataZoom;
 import com.github.koooooo7.echarts4j.option.chart.Grid;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Radar;
@@ -31,6 +32,7 @@ public class ChartOption {
     @JsonProperty("yAxis")
     private YAxis yAxis;
     private Radar radar;
+    private List<? extends DataZoom> dataZoom;
     private Tooltip tooltip;
     private Toolbox toolbox;
     private Object color;

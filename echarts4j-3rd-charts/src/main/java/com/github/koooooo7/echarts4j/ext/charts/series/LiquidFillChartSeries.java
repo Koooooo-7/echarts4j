@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class LiquidChartSeries extends GenericSeriesOption implements SeriesOption {
+public class LiquidFillChartSeries extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
-    private String type = Chart3rdType.Liquid.getType();
+    private String type = Chart3rdType.LiquidFill.getType();
 }

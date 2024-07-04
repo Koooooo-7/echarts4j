@@ -1,0 +1,52 @@
+buildscript {
+    ext.kotlin_version = '1.8.21'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+plugins {
+    id 'java'
+}
+
+apply plugin: 'kotlin'
+group 'com.github.echarts4j.sample'
+version '1.0-SNAPSHOT'
+description 'Sample project for echarts4j.'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions {
+//        jvmTarget = "1.8"
+        jvmTarget = 17
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+//        jvmTarget = "1.8"
+        jvmTarget = 17
+    }
+}
+
+ext {
+    lang3Version = "3.14.0"
+    lombokVersion = "1.18.32"
+    echarts4jVersion = "1.0.0-SNAPSHOT"
+    jacksonVersion = "2.17.1"
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "com.github.koooooo7.echarts4j:echarts4j-project:$echarts4jVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "org.apache.commons:commons-lang3:$lang3Version"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}

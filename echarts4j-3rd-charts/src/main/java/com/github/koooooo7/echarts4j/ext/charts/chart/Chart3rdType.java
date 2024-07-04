@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Chart3rdType {
-    Liquid("liquidFill"),
+    LiquidFill("liquidFill"),
     WordCloud("wordCloud"),
     ;
     private final String type;

@@ -5,7 +5,7 @@ import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Radar;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.RadarChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.RadarChartSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class RadarChartTests {
                                         .indicator(indicator)
                                         .build())
                                 .build()
-                                .addSeries(RadarChartSeriesOption.builder()
+                                .addSeries(RadarChartSeries.builder()
                                         .name("P&L")
                                         .data(finalData)
                                         .build()))

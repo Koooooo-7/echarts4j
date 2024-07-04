@@ -7,17 +7,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
 
-import java.util.List;
-
 @Data
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class RadarChartSeriesOption extends GenericSeriesOption implements SeriesOption {
+public class ScatterChartSeries extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
-    private String type = ChartType.Radar.getType();
-    private List<?> data;
-
-
-
+    private String type = ChartType.Scatter.getType();
 }

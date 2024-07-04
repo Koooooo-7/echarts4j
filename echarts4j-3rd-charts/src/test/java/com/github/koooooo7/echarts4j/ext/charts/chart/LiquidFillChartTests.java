@@ -3,18 +3,18 @@ package com.github.koooooo7.echarts4j.ext.charts.chart;
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.PieChart;
 import com.github.koooooo7.echarts4j.ext.charts.Enhanced3rdChartsCanvas;
-import com.github.koooooo7.echarts4j.ext.charts.series.LiquidChartSeries;
+import com.github.koooooo7.echarts4j.ext.charts.series.LiquidFillChartSeries;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-class LiquidChartTests {
+class LiquidFillChartTests {
 
     @Test
     void shouldGenerateLiquidChart_WhenCallTheLiquidChartConfig_GivenNecessaryConfigs() {
@@ -29,18 +29,18 @@ class LiquidChartTests {
                 .get();
 
         Enhanced3rdChartsCanvas.builder()
-                .addCharts(LiquidChart.builder()
+                .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
                                 .build()
-                                .addSeries(LiquidChartSeries.builder()
+                                .addSeries(LiquidFillChartSeries.builder()
                                         .data(Arrays.asList("0.6", "0.5", "0.1")).build())
                         ).build())
                 .addCharts(PieChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Pie Chart").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
+                                .addSeries(PieChartSeries.builder()
                                         .data(data).build()))
                         .build()).build()
                 .render();
@@ -66,18 +66,18 @@ class LiquidChartTests {
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Pie Chart").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
+                                .addSeries(PieChartSeries.builder()
                                         .data(data).build()))
                         .build())
                 .build();
 
         // box to 3rd support
         Enhanced3rdChartsCanvas.box3rdChartsSupport(canvasExistPieChart.asBuilder())
-                .addCharts(LiquidChart.builder()
+                .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
                                 .build()
-                                .addSeries(LiquidChartSeries.builder()
+                                .addSeries(LiquidFillChartSeries.builder()
                                         .data(Arrays.asList("0.6", "0.5", "0.1")).build())
                         ).build())
                 .build()

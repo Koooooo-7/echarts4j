@@ -16,8 +16,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SnapshotRender implements Render {
-    private static final String CanvasJs = "echarts.getInstanceByDom(document.querySelector('div[_echarts_instance_]'))" +
-            ".getDataURL({type: '%s', pixelRatio: %d, excludeComponents: ['toolbox']})";
     private static final String HTML_SUFFIX = ".html";
     private static final Set<String> validSnapshotSuffix = new HashSet<>(Arrays.asList("jpg", "png", "jpeg"));
     private Render previousRender;
@@ -71,9 +69,7 @@ public class SnapshotRender implements Render {
             page.navigate(htmlFilePath);
 
             page.waitForLoadState(LoadState.DOMCONTENTLOADED);
-            final String js = String.format(CanvasJs, currentImgSuffix, 1);
-            page.evaluate(js);
-            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(fileName)));
+            page.screenshot(new Page.ScreenshotOptions().setFullPage(true).setPath(Paths.get(fileName)));
 
             if (html.exists()) {
                 final boolean ignore = html.delete();

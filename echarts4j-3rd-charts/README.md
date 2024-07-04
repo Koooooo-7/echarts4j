@@ -12,7 +12,7 @@
 
 ### 📊 Support 3rd-Charts
 
-- Liquid
+- Liquid-Fill
 - WordCloud
 
 ### 📝 RunBook
@@ -21,11 +21,11 @@
 
 ```
  Enhanced3rdChartsCanvas.builder()
-                .addCharts(LiquidChart.builder()
+                .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
                                 .build()
-                                .addSeries(LiquidChartSeries.builder()
+                                .addSeries(LiquidFillChartSeries.builder()
                                         .data(Arrays.asList("0.6", "0.5", "0.1")).build())
                         ).build())
                 .addCharts(PieChart.builder()
@@ -58,11 +58,11 @@
 
         // box to 3rd support
         Enhanced3rdChartsCanvas.box3rdChartsSupport(canvasExistPieChart.asBuilder())
-                .addCharts(LiquidChart.builder()
+                .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
                                 .build()
-                                .addSeries(LiquidChartSeries.builder()
+                                .addSeries(LiquidFillChartSeries.builder()
                                         .data(Arrays.asList("0.6", "0.5", "0.1")).build())
                         ).build())
                 .build()

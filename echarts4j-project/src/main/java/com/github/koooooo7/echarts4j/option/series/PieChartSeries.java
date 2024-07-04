@@ -13,7 +13,7 @@ import java.util.List;
 @SuperBuilder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(callSuper = true)
-public class PieChartSeriesOption extends GenericSeriesOption implements SeriesOption {
+public class PieChartSeries extends GenericSeriesOption implements SeriesOption {
     @Builder.Default
     private String type = ChartType.Pie.getType();
     private Boolean clockwise;

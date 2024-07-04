@@ -4,14 +4,13 @@ import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
@@ -84,7 +83,7 @@ public class ListenersTests {
                                 .data(legendData)
                                 .build())
                         .build()
-                        .addSeries(PieChartSeriesOption.builder()
+                        .addSeries(PieChartSeries.builder()
                                 .name(seriesName)
                                 .radius("55%")
                                 .center(center)

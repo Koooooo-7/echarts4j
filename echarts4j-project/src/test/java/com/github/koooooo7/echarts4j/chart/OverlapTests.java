@@ -5,8 +5,8 @@ import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.BarChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.BarChartSeries;
+import com.github.koooooo7.echarts4j.option.series.LineChartSeries;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -53,11 +53,11 @@ public class OverlapTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -92,7 +92,7 @@ public class OverlapTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
@@ -107,7 +107,7 @@ public class OverlapTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data1)
                                 .build())

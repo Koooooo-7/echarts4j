@@ -6,8 +6,8 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.EffectScatterChartSeriesOption;
-import com.github.koooooo7.echarts4j.option.series.ScatterChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.EffectScatterSeries;
+import com.github.koooooo7.echarts4j.option.series.ScatterChartSeries;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;
@@ -67,11 +67,11 @@ public class ScatterChartTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ScatterChartSeriesOption.builder()
+                        .addSeries(ScatterChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(ScatterChartSeriesOption.builder()
+                        .addSeries(ScatterChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -118,11 +118,11 @@ public class ScatterChartTests {
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(EffectScatterChartSeriesOption.builder()
+                        .addSeries(EffectScatterSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(EffectScatterChartSeriesOption.builder()
+                        .addSeries(EffectScatterSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())

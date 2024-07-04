@@ -3,7 +3,7 @@ package com.github.koooooo7.echarts4j.chart;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.embedded.Label;
-import com.github.koooooo7.echarts4j.option.series.SunburstChartSeriesOption;
+import com.github.koooooo7.echarts4j.option.series.SunburstChartSeries;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import org.junit.jupiter.api.Test;
 
@@ -61,7 +61,7 @@ class SunburstChartTests {
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Sunburst Chart").build())
                                 .build()
-                                .addSeries(SunburstChartSeriesOption.builder()
+                                .addSeries(SunburstChartSeries.builder()
                                         .label(Label.builder().rotate(FuncStr.of("'radial'")).build())
                                         .data(data).build()))
                         .build())
