@@ -38,6 +38,7 @@ subprojects {
 
     dependencies {
         implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+        implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     }
