@@ -17,8 +17,9 @@ version '1.0-SNAPSHOT'
 description 'Sample project for echarts4j.'
 
 repositories {
-    mavenLocal()
+//    mavenLocal()
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 compileKotlin {
@@ -37,14 +38,13 @@ compileTestKotlin {
 ext {
     lang3Version = "3.14.0"
     lombokVersion = "1.18.32"
-    echarts4jVersion = "1.0.0-SNAPSHOT"
+    echarts4jVersion = "main-SNAPSHOT"
     jacksonVersion = "2.17.1"
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "com.github.koooooo7.echarts4j:echarts4j-project:$echarts4jVersion"
-    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.github.Koooooo-7.echarts4j:echarts4j-project:$echarts4jVersion"
     implementation "org.apache.commons:commons-lang3:$lang3Version"
 
     compileOnly "org.projectlombok:lombok:$lombokVersion"

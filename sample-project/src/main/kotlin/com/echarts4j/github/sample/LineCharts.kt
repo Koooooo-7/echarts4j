@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.ChartOption
 import com.github.koooooo7.echarts4j.option.chart.Title
 import com.github.koooooo7.echarts4j.option.chart.Toolbox
 import com.github.koooooo7.echarts4j.option.chart.Toolbox.SaveAsImage
-import com.github.koooooo7.echarts4j.option.series.LineChartSeriesOption
+import com.github.koooooo7.echarts4j.option.series.LineChartSeries
 import java.io.File
 
 
@@ -30,7 +30,7 @@ private fun basicLineCharts() {
                                         .build()
                                 ).build()
                         ).build().addSeries(
-                            LineChartSeriesOption.builder()
+                            LineChartSeries.builder()
                                 .data(listOf(1, 2, 3, 4, 5, 6))
                                 .build()
                         )
