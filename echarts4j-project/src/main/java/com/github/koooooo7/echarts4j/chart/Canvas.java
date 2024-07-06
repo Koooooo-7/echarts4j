@@ -140,7 +140,7 @@ public class Canvas {
 
         public CanvasBuilder addCharts(Chart<?>... charts) {
             Arrays.stream(charts).forEach(c -> {
-                c.postProcessor();
+                c.postProcessor(canvas);
                 if (Objects.isNull(c.getChartType())) {
                     throw new ChartException("Can not add a no type chart !");
                 }
@@ -157,7 +157,7 @@ public class Canvas {
          */
         public CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<?>>> chartModifier) {
             chartModifier.accept(Optional.ofNullable((canvas.getCharts().get(chartId))));
-            Optional.ofNullable(canvas.getCharts().get(chartId)).ifPresent(Chart::postProcessor);
+            Optional.ofNullable(canvas.getCharts().get(chartId)).ifPresent(c->c.postProcessor(canvas));
             return this;
         }
 
@@ -168,7 +168,7 @@ public class Canvas {
         public CanvasBuilder updateCharts(BiConsumer<String, Chart<?>> chartsModifier) {
             canvas.getCharts().forEach((id, chart) -> {
                 chartsModifier.accept(id, chart);
-                chart.postProcessor();
+                chart.postProcessor(canvas);
             });
             return this;
         }

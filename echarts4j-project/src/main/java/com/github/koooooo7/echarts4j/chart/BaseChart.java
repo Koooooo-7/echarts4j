@@ -17,7 +17,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Data
 @SuperBuilder
@@ -71,7 +70,7 @@ public abstract class BaseChart<T extends Chart<T>> extends Container implements
      * And <strong>it requires no side effect when call it multi times.</strong>
      */
     @Override
-    public void postProcessor() {
+    public void postProcessor(Canvas canvas) {
         configChartIdIfNecessary();
         configChartTypeOnSeriesIfNecessary();
         injectInstanceToFunctionsIfNecessary();

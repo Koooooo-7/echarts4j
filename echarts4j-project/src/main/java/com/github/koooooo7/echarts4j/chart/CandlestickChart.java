@@ -22,8 +22,8 @@ public class CandlestickChart extends BaseChart<com.github.koooooo7.echarts4j.ch
     private ChartType chartType = ChartType.Candlestick;
 
     @Override
-    public void postProcessor() {
-        super.postProcessor();
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
         if (Objects.isNull(getChartOptions().getXAxis())) {
             getChartOptions().setXAxis(XAxis.builder().build());
         }

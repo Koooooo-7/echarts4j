@@ -8,7 +8,6 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Objects;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Data
 @SuperBuilder
@@ -18,8 +17,8 @@ public class ScatterChart extends BaseChart<ScatterChart> {
     private ChartType chartType = ChartType.Scatter;
 
     @Override
-    public void postProcessor() {
-        super.postProcessor();
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
         if (Objects.isNull(getChartOptions().getXAxis())) {
             getChartOptions().setXAxis(XAxis.builder().build());
         }

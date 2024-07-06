@@ -21,5 +21,5 @@ public interface Chart<T> {
 
     T addListener(String eventName, FuncStr query, FuncStr handler);
 
-    void postProcessor();
+    void postProcessor(Canvas canvas);
 }

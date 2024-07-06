@@ -19,8 +19,8 @@ public class LineChart extends BaseChart<LineChart> {
     private ChartType chartType = ChartType.Line;
 
     @Override
-    public void postProcessor() {
-        super.postProcessor();
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
         if (Objects.isNull(getChartOptions().getXAxis())) {
             getChartOptions().setXAxis(XAxis.builder().build());
         }

@@ -19,8 +19,8 @@ public class BarChart extends BaseChart<BarChart> {
     private ChartType chartType = ChartType.Bar;
 
     @Override
-    public void postProcessor() {
-        super.postProcessor();
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
         if (Objects.isNull(getChartOptions().getXAxis())) {
             getChartOptions().setXAxis(XAxis.builder().build());
         }
