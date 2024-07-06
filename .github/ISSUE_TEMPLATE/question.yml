@@ -1,0 +1,26 @@
+name: '❓Question'
+title: '[Question]'
+labels: [ "question" ]
+description: Something you don't know or its behavior confuse you
+body:
+  - type: textarea
+    attributes:
+      label: Describe your question
+      placeholder: Please explain it in details, why how and what.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Code pieces of your question
+      placeholder: Please share your code pieces for details if you have.
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: echarts4j version
+      description: Which version is it you use now?
+    validations:
+      required: true
+

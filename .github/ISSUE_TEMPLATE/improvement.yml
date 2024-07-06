@@ -1,0 +1,31 @@
+
+name: '🎉Feature/Improvement'
+title: '[proposal]'
+labels: [ "enhancement" ]
+description: Your ideas about something that you do want echarts4j can provide
+body:
+  - type: textarea
+    attributes:
+      label: Describe your proposal
+      placeholder: Please explain it in details, why how and what.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: What the feature/improvement it should looks like?
+      placeholder: Please explain it in details as much as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Other information
+      placeholder: Anything else you want attach on if it needs
+
+  - type: checkboxes
+    attributes:
+      label: Willing to implement it?
+      description: Do you want implement it by yourself? We are glad to do the support also
+      options:
+        - label: Yes, I do
