@@ -6,7 +6,41 @@
 
 ### 🔰 Installation
 
-// TODO
+<details>
+  <summary>Install via Gradle</summary>
+
+```gradle
+repositories {
+    mavenCentral()
+    // add the repository
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-chart-server:main-SNAPSHOT'
+}
+```
+
+</details>
+
+<details>
+  <summary>Install via Maven</summary>
+
+```pom
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+	
+<dependency>
+    <groupId>com.github.Koooooo-7.echarts4j</groupId>
+    <artifactId>echarts4j-chart-server</artifactId>
+    <version>main-SNAPSHOT</version>
+</dependency>
+```
+</details>
 
 ---
 

@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:main-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:main-SNAPSHOT'
 }
 
 ```
