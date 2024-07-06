@@ -38,7 +38,9 @@ subprojects {
 
     dependencies {
         implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+        implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
         implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+        compileOnly("com.google.code.findbugs:jsr305")
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     }

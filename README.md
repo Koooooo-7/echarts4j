@@ -18,8 +18,7 @@ this further. *( contents polished by `ChartGPT-4`)*
 
 > Support JDK8+ with `"JDK Sympathy"` (you do need upgrade it tho!)
 
-It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT) instead of MavenCentral since it is still
-in active dev.
+It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT).
 
 <details>
   <summary>Install via Gradle</summary>
