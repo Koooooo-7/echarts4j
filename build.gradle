@@ -4,6 +4,8 @@ plugins {
     id 'java'
 }
 
+version project.echarts4jVersion
+
 allprojects {
     group 'com.github.koooooo7.echarts4j'
 
