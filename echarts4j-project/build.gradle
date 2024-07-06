@@ -19,6 +19,11 @@ dependencies {
 
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 //jar {
 //    baseName 'echarts4j'
 //}
