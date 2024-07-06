@@ -1,6 +1,10 @@
 package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.github.koooooo7.echarts4j.option.embedded.chart.AxisLine;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitArea;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitLine;
+import com.github.koooooo7.echarts4j.option.embedded.series.AxisPointer;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -29,5 +33,9 @@ public class AngleAxis {
     private Integer logBase;
     private Boolean silent;
     private Boolean triggerEvent;
+    private AxisLine axisLine;
+    private SplitLine splitLine;
+    private SplitArea splitArea;
+    private AxisPointer axisPointer;
 
 }

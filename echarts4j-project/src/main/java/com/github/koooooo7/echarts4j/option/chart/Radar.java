@@ -2,6 +2,10 @@ package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.koooooo7.echarts4j.option.embedded.chart.AxisLine;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitArea;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitLine;
+import com.github.koooooo7.echarts4j.option.embedded.series.AxisPointer;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.Builder;
 import lombok.Data;

@@ -16,4 +16,12 @@ public class Polar {
     private Integer z;
     private FuncStr center;
     private Object radius;
+    private Tooltip tooltip;
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Tooltip {
+
+    }
 }

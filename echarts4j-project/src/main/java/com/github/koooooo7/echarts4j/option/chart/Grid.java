@@ -16,4 +16,13 @@ public class Grid {
     private String bottom;
     private String width;
     private String height;
+    private Tooltip tooltip;
+
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Tooltip {
+
+    }
 }
