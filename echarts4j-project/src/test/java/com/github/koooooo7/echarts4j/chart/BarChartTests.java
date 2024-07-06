@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,22 +31,28 @@ public class BarChartTests {
     void setUp() {
         data1.clear();
         data2.clear();
-        x.clear();
+        x.add("Mon");
+        x.add("Tue");
+        x.add("Wed");
+        x.add("Thu");
+        x.add("Fri");
+        x.add("Sat");
+        x.add("Sun");
         for (int i = 0; i < 20; i++) {
             data1.add(ThreadLocalRandom.current().nextInt(100));
             data2.add(ThreadLocalRandom.current().nextInt(100));
-            x.add(RandomStringUtils.random(3, true, false));
         }
+
 
     }
 
     @Test
-    void shouldRenderCorrectly_WhenRenderTheLineCharts_GivenRelatedConfigs() throws IOException {
+    void shouldRenderCorrectly_WhenRenderTheLineCharts_GivenRelatedConfigs() {
 
-        final String chartTitle = "My Charts";
+        final String chartTitle = "My First echarts4j Bar";
         final String legendFormatter = "'Legend {name}'";
-        final String seriesName = "seriesName";
-        final String seriesName2 = "seriesName2";
+        final String seriesName = "Cole";
+        final String seriesName2 = "Peps";
 
         final BarChart c = BarChart.builder()
                 .options(ChartOption.builder()
@@ -93,6 +100,62 @@ public class BarChartTests {
                     .addCharts(c)
                     .build()
                     .render();
+        } catch (Exception e) {
+            Assertions.fail();
+        }
+    }
+
+    @Test
+    void shouldRenderCorrectly_WhenRenderThe2BarCharts_GivenRelatedConfigs() {
+
+        final String chartTitle = "My First echarts4j Bar";
+        final String legendFormatter = "'Top: {name}'";
+        final String seriesName = "Cole";
+        final String seriesName2 = "Peps";
+
+        try {
+            Canvas.builder()
+                    .addCharts(BarChart.builder()
+                            .options(ChartOption.builder()
+                                    .title(Title.builder()
+                                            .text(chartTitle).build())
+                                    .legend(Legend.builder()
+                                            .formatter(FuncStr.of(legendFormatter)).build())
+                                    .toolbox(Toolbox.builder()
+                                            .showTitle(true)
+                                            .feature(Toolbox.Feature.builder()
+                                                    .saveAsImage(Toolbox.SaveAsImage.builder().build())
+                                                    .restore(Toolbox.Restore.builder().build())
+                                                    .dataView(Toolbox.DataView.builder().build())
+                                                    .build())
+                                            .build())
+                                    .xAxis(XAxis.builder()
+                                            .data(x)
+                                            .build())
+                                    .yAxis(YAxis.builder().build())
+                                    .build()
+                                    .addSeries(BarChartSeries.builder()
+                                            .name(seriesName)
+                                            .data(data1)
+                                            .markLine(MarkLine.builder()
+                                                    .data(Arrays.asList(MarkLine.MarkLineDataItem.builder()
+                                                                    .name("The Max")
+                                                                    .type("max")
+                                                                    .build(),
+                                                            MarkLine.MarkLineDataItem.builder()
+                                                                    .name("The Min")
+                                                                    .type("min")
+                                                                    .build()))
+                                                    .build())
+                                            .build())
+                                    .addSeries(BarChartSeries.builder()
+                                            .name(seriesName2)
+                                            .data(data2)
+                                            .build())
+                            )
+                            .build())
+                    .build()
+                    .renderTo(new File("bar.html"));
         } catch (Exception e) {
             Assertions.fail();
         }

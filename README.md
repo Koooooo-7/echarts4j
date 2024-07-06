@@ -117,47 +117,63 @@ In general, there are three key aspects to understand about building an Echarts 
 
 ---
 
-### 📊 How to
+### 📊 Usage
 
 > Basic Chart
 
-<img src="./docs/assets/line.png" alt="line">
+<img src="./docs/assets/bar.png" alt="line">
 <details>
   <summary>Code</summary>
 
 ```
-   Canvas.builder()
-                .addCharts(LineChart.builder()
-                        .options(ChartOption.builder()
-                                .title(Title.builder()
-                                        .text(chartTitle).build())
-                                .legend(Legend.builder()
-                                        .formatter(FuncStr.of(LiquidFillChart)).build())
-                                .toolbox(Toolbox.builder()
-                                        .showTitle(true)
-                                        .feature(Toolbox.Feature.builder()
-                                                .saveAsImage(Toolbox.SaveAsImage.builder().build())
-                                                .restore(Toolbox.Restore.builder().build())
-                                                .dataView(Toolbox.DataView.builder().build())
-                                                .build())
-                                        .build())
-                                .xAxis(XAxis.builder()
-                                        .data(x)
-                                        .build())
-                                .yAxis(YAxis.builder().build())
-                                .build()
-                                .addSeries(ListChartSeriesOption.builder()
-                                        .name(seriesName)
-                                        .data(data1)
-                                        .build())
-                                .addSeries(ListChartSeriesOption.builder()
-                                        .name(seriesName2)
-                                        .data(data2)
-                                        .build())
-                        )
-                        .build())
-                .build()
-                .renderTo(new File("line.html"));
+        final String chartTitle = "My First echarts4j Bar";
+        final String legendFormatter = "'Top: {name}'";
+        final String seriesName = "Cole";
+        final String seriesName2 = "Peps";
+
+        try {
+            Canvas.builder()
+                    .addCharts(BarChart.builder()
+                            .options(ChartOption.builder()
+                                    .title(Title.builder()
+                                            .text(chartTitle).build())
+                                    .legend(Legend.builder()
+                                            .formatter(FuncStr.of(legendFormatter)).build())
+                                    .toolbox(Toolbox.builder()
+                                            .showTitle(true)
+                                            .feature(Toolbox.Feature.builder()
+                                                    .saveAsImage(Toolbox.SaveAsImage.builder().build())
+                                                    .restore(Toolbox.Restore.builder().build())
+                                                    .dataView(Toolbox.DataView.builder().build())
+                                                    .build())
+                                            .build())
+                                    .xAxis(XAxis.builder()
+                                            .data(x)
+                                            .build())
+                                    .yAxis(YAxis.builder().build())
+                                    .build()
+                                    .addSeries(BarChartSeries.builder()
+                                            .name(seriesName)
+                                            .data(data1)
+                                            .markLine(MarkLine.builder()
+                                                    .data(Arrays.asList(MarkLine.MarkLineDataItem.builder()
+                                                                    .name("The Max")
+                                                                    .type("max")
+                                                                    .build(),
+                                                            MarkLine.MarkLineDataItem.builder()
+                                                                    .name("The Min")
+                                                                    .type("min")
+                                                                    .build()))
+                                                    .build())
+                                            .build())
+                                    .addSeries(BarChartSeries.builder()
+                                            .name(seriesName2)
+                                            .data(data2)
+                                            .build())
+                            )
+                            .build())
+                    .build()
+                    .renderTo(new File("bar.html"));
 
 ```
 
