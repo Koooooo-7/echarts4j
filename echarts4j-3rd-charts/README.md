@@ -6,8 +6,6 @@
 
 ### 🔰 Installation
 
-> Support JDK8+ with `"JDK Sympathy"` (you do need upgrade it tho!)
-
 It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT).
 
 <details>
@@ -44,6 +42,7 @@ dependencies {
     <version>main-SNAPSHOT</version>
 </dependency>
 ```
+
 </details>
 
 ---
@@ -58,7 +57,7 @@ dependencies {
 #### Initial canvas with 3rd chart support, recommend.
 
 ```
- Enhanced3rdChartsCanvas.builder()
+         Canvas.builder()
                 .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
@@ -95,7 +94,7 @@ dependencies {
                 .build();
 
         // box to 3rd support
-        Enhanced3rdChartsCanvas.box3rdChartsSupport(canvasExistPieChart.asBuilder())
+        canvasExistPieChart.asBuilder())
                 .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
@@ -107,9 +106,6 @@ dependencies {
                 .render();
 
 ```
-
-> By default, it supports 3rd charts and other charts mixed in the same Canvas instance in one time.
-> If you call the `builder` for the canvas again, you may need to re-`box3rdChartsSupport` also.
 
 ### 📃 License
 

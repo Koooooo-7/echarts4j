@@ -32,8 +32,9 @@ public class LiquidFillChart extends BaseChart<LiquidFillChart> implements Enhan
     }
 
     @Override
-    public Consumer<Canvas> canvasPostProcessor() {
-        return canvas -> canvas.asBuilder()
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
+        canvas.asBuilder()
                 .appendJSAssets(LIQUID_ADDITION_ASSET)
                 .build();
     }

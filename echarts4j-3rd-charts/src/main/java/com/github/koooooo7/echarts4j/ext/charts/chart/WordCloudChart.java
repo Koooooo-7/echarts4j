@@ -32,8 +32,9 @@ public class WordCloudChart extends BaseChart<WordCloudChart> implements Enhance
     }
 
     @Override
-    public Consumer<Canvas> canvasPostProcessor() {
-        return canvas -> canvas.asBuilder()
+    public void postProcessor(Canvas canvas) {
+        super.postProcessor(canvas);
+        canvas.asBuilder()
                 .appendJSAssets(WORD_CLOUD_ADDITION_ASSET)
                 .build();
     }

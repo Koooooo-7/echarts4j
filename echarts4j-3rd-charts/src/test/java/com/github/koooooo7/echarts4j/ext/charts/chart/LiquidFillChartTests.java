@@ -2,7 +2,6 @@ package com.github.koooooo7.echarts4j.ext.charts.chart;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.PieChart;
-import com.github.koooooo7.echarts4j.ext.charts.Enhanced3rdChartsCanvas;
 import com.github.koooooo7.echarts4j.ext.charts.series.LiquidFillChartSeries;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
@@ -28,7 +27,7 @@ class LiquidFillChartTests {
                 .addData(300, "Video Ads")
                 .get();
 
-        Enhanced3rdChartsCanvas.builder()
+        Canvas.builder()
                 .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())
@@ -72,7 +71,7 @@ class LiquidFillChartTests {
                 .build();
 
         // box to 3rd support
-        Enhanced3rdChartsCanvas.box3rdChartsSupport(canvasExistPieChart.asBuilder())
+        canvasExistPieChart.asBuilder()
                 .addCharts(LiquidFillChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Liquid Basic").build())

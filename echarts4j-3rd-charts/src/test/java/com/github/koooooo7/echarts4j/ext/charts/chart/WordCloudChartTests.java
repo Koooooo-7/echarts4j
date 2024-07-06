@@ -1,7 +1,7 @@
 package com.github.koooooo7.echarts4j.ext.charts.chart;
 
+import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.chart.LineChart;
-import com.github.koooooo7.echarts4j.ext.charts.Enhanced3rdChartsCanvas;
 import com.github.koooooo7.echarts4j.ext.charts.series.WordCloudChartSeries;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
@@ -9,8 +9,6 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -30,7 +28,7 @@ class WordCloudChartTests {
             helper.addData(ThreadLocalRandom.current().nextInt(100), i + "_Placeholder");
         }
 
-        Enhanced3rdChartsCanvas.builder()
+        Canvas.builder()
                 .addCharts(WordCloudChart.builder()
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("WordCloud Basic").build())
@@ -57,7 +55,7 @@ class WordCloudChartTests {
         }
 
         try {
-            Enhanced3rdChartsCanvas.builder()
+            Canvas.builder()
                     .addCharts(WordCloudChart.builder()
                             .options(ChartOption.builder()
                                     .title(Title.builder().text("WordCloud Basic").build())
