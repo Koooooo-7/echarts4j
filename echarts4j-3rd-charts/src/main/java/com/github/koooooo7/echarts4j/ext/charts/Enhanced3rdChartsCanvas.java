@@ -31,7 +31,8 @@ public class Enhanced3rdChartsCanvas {
     }
 
     private static class PostEnhancerProcessInterceptor implements MethodInterceptor {
-        private static final Predicate<Method> canvasBuildMethod = method -> method.getName().contains("build");
+        private static final Predicate<Method> addChartsCall = method -> method.getName().contains("addCharts");
+        private static final Predicate<Method> buildMethodCall = method -> method.getName().contains("build");
         private final Canvas.CanvasBuilder target;
 
         public PostEnhancerProcessInterceptor(Canvas.CanvasBuilder target) {
@@ -40,19 +41,29 @@ public class Enhanced3rdChartsCanvas {
 
         @Override
         public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-            if (canvasBuildMethod.test(method)) {
+            if (buildMethodCall.test(method)) {
                 final Canvas canvas = target.build();
-                canvas.getCharts().values().stream()
-                        .filter(c -> c instanceof Enhanced3rdChart)
-                        .map(it -> (Enhanced3rdChart) it)
-                        .forEach(chart -> {
-                            chart.canvasPostProcessor().accept(canvas);
-                        });
+                doCanvasPostProcessor(canvas);
                 return canvas;
+            }
+
+            if (addChartsCall.test(method)) {
+                method.invoke(target, args);
+                final Canvas canvas = target.build();
+                doCanvasPostProcessor(canvas);
+                return obj;
             }
 
             method.invoke(target, args);
             return obj;
         }
+
+        private static void doCanvasPostProcessor(Canvas canvas) {
+            canvas.getCharts().values().stream()
+                    .filter(c -> c instanceof Enhanced3rdChart)
+                    .map(it -> (Enhanced3rdChart) it)
+                    .forEach(chart -> chart.canvasPostProcessor().accept(canvas));
+        }
     }
+
 }

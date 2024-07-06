@@ -3,6 +3,7 @@ package com.github.koooooo7.echarts4j.option.embedded;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.type.FuncStr;
+import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@EmbedScope(EmbedScope.Scope.Series)
 public class Label {
     private Boolean show;
     private FuncStr position;

@@ -2,6 +2,7 @@ package com.github.koooooo7.echarts4j.option.embedded;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.type.FuncStr;
+import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,12 +11,14 @@ import java.util.List;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class MarkPoint {
+@EmbedScope(EmbedScope.Scope.Series)
+public class MarkLine {
+    private Boolean silent;
     private FuncStr symbol;
     private FuncStr symbolSize;
-    private FuncStr symbolRotate;
+    private Integer percision;
     private Label label;
-    private ItemStyle itemStyle;
+    private LineStyle lineStyle;
     private Emphasis emphasis;
     private List<?> data;
     private Boolean animation;
@@ -24,7 +27,7 @@ public class MarkPoint {
     @Data
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class MarkPointDataItem {
+    public static class MarkLineDataItem {
         private String name;
         private String type;
         private FuncStr coord;
@@ -35,7 +38,7 @@ public class MarkPoint {
         private FuncStr symbolSize;
         private Integer symbolRotate;
         private FuncStr symbolOffset;
-        private LineStyle lineStyle;
+        private ItemStyle itemStyle;
         private Label label;
         private Emphasis emphasis;
         private Boolean animation;
