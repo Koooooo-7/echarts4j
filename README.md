@@ -1,11 +1,9 @@
 # echarts4j
 
-[![](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
-<a href="https://echarts.apache.org/" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/echarts-_v5+-orange" alt="echartsVersion">
-<a href="https://opensource.org/licenses/MIT" style="text-decoration: none;">
-<img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="MIT License">
-<img src="https://img.shields.io/badge/JDK-8+-blue" alt="echartsVersion">
+[![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
+![Echarts](https://img.shields.io/badge/echarts-_v5+-orange)
+![JDK](https://img.shields.io/badge/JDK-8+-blue)
+![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 
 
 
