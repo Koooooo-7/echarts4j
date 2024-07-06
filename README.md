@@ -89,7 +89,7 @@ In general, there are three key aspects to understand about building an Echarts 
                                 .title(Title.builder()
                                         .text(chartTitle).build())
                                 .legend(Legend.builder()
-                                        .formatter(FuncStr.of(legendFormatter)).build())
+                                        .formatter(FuncStr.of(LiquidFillChart)).build())
                                 .toolbox(Toolbox.builder()
                                         .showTitle(true)
                                         .feature(Toolbox.Feature.builder()
