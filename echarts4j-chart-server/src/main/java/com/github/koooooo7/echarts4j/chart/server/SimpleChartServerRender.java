@@ -2,7 +2,9 @@ package com.github.koooooo7.echarts4j.chart.server;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
 import com.github.koooooo7.echarts4j.exception.RenderException;
+import com.github.koooooo7.echarts4j.render.DefaultRender;
 import com.github.koooooo7.echarts4j.render.Render;
+import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -19,7 +21,6 @@ import java.util.concurrent.Executors;
 import java.util.function.Supplier;
 
 public class SimpleChartServerRender implements Render {
-    private Render previousRender;
     private static volatile boolean setup = false;
     private static final Object SERVER_SETUP_LOCK = new Object();
     // not thread safe
@@ -31,7 +32,7 @@ public class SimpleChartServerRender implements Render {
     @Override
     public void render(Canvas canvas) {
         try (Writer writer = new StringWriter()) {
-            previousRender.render(canvas, writer);
+            RenderProvider.getRender(DefaultRender.class).render(canvas, writer);
             refreshServerCharts(writer);
         } catch (Exception e) {
             throw new RenderException(e);
@@ -40,22 +41,17 @@ public class SimpleChartServerRender implements Render {
 
     @Override
     public void render(Canvas canvas, Writer writer) {
-        previousRender.render(canvas, writer);
+        render(canvas);
     }
 
     @Override
     public void render(Canvas canvas, File file) {
-        throw new UnsupportedOperationException();
+        render(canvas);
     }
 
     @Override
     public int order() {
-        return 20000;
-    }
-
-    @Override
-    public void setPrevious(Render render) {
-        this.previousRender = render;
+        return Integer.MAX_VALUE - 1;
     }
 
     private void refreshServerCharts(Writer wr) {

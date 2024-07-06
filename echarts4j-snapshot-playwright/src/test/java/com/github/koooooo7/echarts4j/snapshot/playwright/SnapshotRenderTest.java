@@ -84,7 +84,7 @@ class SnapshotRenderTest {
                 )
                 .build();
 
-        File target = new File("test1.jpg");
+        File target = new File("render.jpg");
         try {
             Canvas.builder()
                     .addCharts(c)

@@ -1,7 +1,9 @@
 package com.github.koooooo7.echarts4j.snapshot.playwright;
 
 import com.github.koooooo7.echarts4j.chart.Canvas;
+import com.github.koooooo7.echarts4j.render.DefaultRender;
 import com.github.koooooo7.echarts4j.render.Render;
+import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
@@ -18,7 +20,6 @@ import java.util.Set;
 public class SnapshotRender implements Render {
     private static final String HTML_SUFFIX = ".html";
     private static final Set<String> validSnapshotSuffix = new HashSet<>(Arrays.asList("jpg", "png", "jpeg"));
-    private Render previousRender;
 
     @Override
     public void render(Canvas canvas) {
@@ -32,17 +33,12 @@ public class SnapshotRender implements Render {
 
     @Override
     public void render(Canvas canvas, Writer writer) {
-        previousRender.render(canvas, writer);
+        throw new UnsupportedOperationException("Not support render image to a writer for now");
     }
 
     @Override
     public int order() {
-        return 10000;
-    }
-
-    @Override
-    public void setPrevious(Render render) {
-        this.previousRender = render;
+        return Integer.MAX_VALUE - 1;
     }
 
 
@@ -62,7 +58,7 @@ public class SnapshotRender implements Render {
 
             String htmlPath = fileName.substring(0, lastDotIndex) + HTML_SUFFIX;
             File html = new File(htmlPath);
-            previousRender.render(canvas, html);
+            RenderProvider.getRender(DefaultRender.class).render(canvas, html);
 
             Page page = browser.newPage();
             String htmlFilePath = Paths.get(htmlPath).toUri().toString();
