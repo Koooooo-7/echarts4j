@@ -1,11 +1,9 @@
 package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.koooooo7.echarts4j.option.embedded.NameTextStyle;
-import com.github.koooooo7.echarts4j.option.embedded.NameTruncate;
+import com.github.koooooo7.echarts4j.option.embedded.series.NameTextStyle;
+import com.github.koooooo7.echarts4j.option.embedded.series.NameTruncate;
 import com.github.koooooo7.echarts4j.type.FuncStr;
-import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
-import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 

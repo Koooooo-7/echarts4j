@@ -1,4 +1,4 @@
-package com.github.koooooo7.echarts4j.option.embedded;
+package com.github.koooooo7.echarts4j.option.embedded.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.koooooo7.echarts4j.type.FuncStr;
@@ -16,4 +16,5 @@ public class Tooltip {
     private FuncStr valueFormatter;
     private Integer padding;
     private TextStyle textStyle;
+    private AxisPointer axisPointer;
 }

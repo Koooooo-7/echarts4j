@@ -1,7 +1,6 @@
-package com.github.koooooo7.echarts4j.option.embedded;
+package com.github.koooooo7.echarts4j.option.embedded.series;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
 import lombok.Builder;

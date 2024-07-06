@@ -124,7 +124,6 @@ public class Canvas {
         }
 
         public CanvasBuilder appendJSAssets(String... jsAsset) {
-            canvas.appendJsAssets.addAll(Arrays.asList(jsAsset));
             Arrays.stream(jsAsset).forEach(canvas::addJsAsset);
             return this;
         }

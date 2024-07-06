@@ -112,12 +112,7 @@ public abstract class BaseChart<T extends Chart<T>> extends Container implements
             return;
         }
 
-        final List<String> tmp = functions
-                .stream()
-                .map(f -> ChartUtil.injectInstance(f, this))
-                .collect(Collectors.toList());
-        functions.clear();
-        functions.addAll(tmp);
+        functions.replaceAll(f -> ChartUtil.injectInstance(f, this));
     }
 
     @Data

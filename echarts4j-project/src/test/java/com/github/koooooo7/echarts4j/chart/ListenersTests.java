@@ -11,6 +11,7 @@ import com.github.koooooo7.echarts4j.type.FuncStr;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.List;
@@ -68,6 +69,7 @@ public class ListenersTests {
                 .addData(234, "Affiliate Ads")
                 .addData(135, "Video Ads")
                 .addData(1548, "Search Engines");
+        final String legendFormatter = "'Legend {name}'";
 
         final List<String> center = Arrays.asList("50%", "60%");
         final PieChart p = PieChart.builder()
@@ -78,6 +80,7 @@ public class ListenersTests {
                                 .right("20")
                                 .build())
                         .legend(Legend.builder()
+                                .formatter(FuncStr.of(legendFormatter))
                                 .orient("vertical")
                                 .left("left")
                                 .data(legendData)
@@ -103,7 +106,7 @@ public class ListenersTests {
                     .build();
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
-//            render.render(cvs, new FileWriter("dynamic-pie.html"));
+            render.render(cvs, new FileWriter("dynamic-pie.html"));
         } catch (Exception e) {
             Assertions.fail();
         }

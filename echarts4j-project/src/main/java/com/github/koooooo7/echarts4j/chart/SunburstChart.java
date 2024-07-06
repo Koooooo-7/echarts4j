@@ -1,8 +1,8 @@
 package com.github.koooooo7.echarts4j.chart;
 
-import com.github.koooooo7.echarts4j.option.embedded.Emphasis;
-import com.github.koooooo7.echarts4j.option.embedded.ItemStyle;
-import com.github.koooooo7.echarts4j.option.embedded.Label;
+import com.github.koooooo7.echarts4j.option.embedded.series.Emphasis;
+import com.github.koooooo7.echarts4j.option.embedded.series.ItemStyle;
+import com.github.koooooo7.echarts4j.option.embedded.series.Label;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

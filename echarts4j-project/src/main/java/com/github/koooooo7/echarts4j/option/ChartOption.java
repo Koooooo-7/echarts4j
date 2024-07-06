@@ -13,6 +13,7 @@ import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.type.FuncStr;
+import com.github.koooooo7.echarts4j.util.JsonUtil;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 

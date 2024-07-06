@@ -21,6 +21,7 @@ public class DataZoom {
         private String type = "inside";
         private Integer start;
         private Integer end;
+        private String top;
         private FuncStr xAxisIndex;
         private FuncStr yAxisIndex;
 
@@ -37,6 +38,7 @@ public class DataZoom {
         private Boolean show;
         private Integer start;
         private Integer end;
+        private String top;
         private FuncStr xAxisIndex;
         private FuncStr yAxisIndex;
     }

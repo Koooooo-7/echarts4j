@@ -21,6 +21,9 @@ public enum ChartType {
     Scatter("scatter"),
     EffectScatter("effectScatter"),
     Radar("radar"),
-    Sunburst("sunburst");
+    Sunburst("sunburst"),
+    Candlestick("candlestick"),
+    ;
+
     private final String type;
 }

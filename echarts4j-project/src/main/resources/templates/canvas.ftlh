@@ -39,14 +39,14 @@
     echarts4j_${chartId}.setOption(echarts4j_option_${chartId})
 
     <#list functions as func>
-    ${func?remove_beginning(":")?no_esc}
+    ${func?no_esc}
     </#list>
 
     <#list listeners as listener>
     <#if listener.query?has_content>
-    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.query?remove_beginning(":")?no_esc}, ${listener.handler?remove_beginning(":")?no_esc});
+    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.query?no_esc}, ${listener.handler?no_esc});
     <#else>
-    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.handler?remove_beginning(":")?no_esc});
+    echarts4j_${chartId}.on(${listener.eventName?no_esc}, ${listener.handler?no_esc});
     </#if>
     </#list>
 </script>

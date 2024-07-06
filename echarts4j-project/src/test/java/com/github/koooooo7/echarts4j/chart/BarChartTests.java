@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.embedded.MarkLine;
+import com.github.koooooo7.echarts4j.option.embedded.series.MarkLine;
 import com.github.koooooo7.echarts4j.option.series.BarChartSeries;
 import com.github.koooooo7.echarts4j.option.series.LineChartSeries;
 import com.github.koooooo7.echarts4j.type.FuncStr;
@@ -16,7 +16,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

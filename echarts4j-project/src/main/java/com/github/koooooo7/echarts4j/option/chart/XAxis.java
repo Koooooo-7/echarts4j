@@ -1,11 +1,12 @@
 package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.koooooo7.echarts4j.option.embedded.NameTextStyle;
-import com.github.koooooo7.echarts4j.option.embedded.NameTruncate;
+import com.github.koooooo7.echarts4j.option.embedded.chart.AxisLine;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitArea;
+import com.github.koooooo7.echarts4j.option.embedded.chart.SplitLine;
+import com.github.koooooo7.echarts4j.option.embedded.series.NameTextStyle;
+import com.github.koooooo7.echarts4j.option.embedded.series.NameTruncate;
 import com.github.koooooo7.echarts4j.type.FuncStr;
-import com.github.koooooo7.echarts4j.util.annotation.EmbedScope;
-import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
@@ -24,6 +25,7 @@ public class XAxis {
     private String type;
     private String name;
     private String nameLocation;
+    private FuncStr boundaryGap;
     private List<?> data;
     private NameTextStyle nameTextStyle;
     private NameTruncate nameTruncate;
@@ -37,5 +39,8 @@ public class XAxis {
     private Integer interval;
     private Boolean silent;
     private Boolean triggerEvent;
+    private AxisLine axisLine;
+    private SplitLine splitLine;
+    private SplitArea splitArea;
 
 }
