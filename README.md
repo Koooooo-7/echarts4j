@@ -4,7 +4,7 @@
 ![Echarts](https://img.shields.io/badge/echarts-_v5+-orange)
 ![JDK](https://img.shields.io/badge/JDK-8+-blue)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)
-
+[![JavaDoc](https://img.shields.io/badge/JavaDoc-latest-yellow)](https://javadoc.jitpack.io/com/github/koooooo-7/echarts4j/echarts4j-project/main-SNAPSHOT/javadoc/index.html)
 
 
 > Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can
@@ -79,7 +79,7 @@ dependencies {
 
 ### 📝 RunBook
 
-In a nutshell, it generates [Echarts](https://echarts.apache.org/) options for the Echarts instance.
+In a nutshell, it generates [Apache Echarts](https://echarts.apache.org/) options for the Echarts instance.
 If you already familiar with [Echarts](https://echarts.apache.org/), you can quickly dive in.
 
 - Take a quick look at the [Echarts Demos](https://echarts.apache.org/examples/en/index.html) to find what you need.
@@ -87,7 +87,7 @@ If you already familiar with [Echarts](https://echarts.apache.org/), you can qui
   configure.  
   (If it is missing in `echarts4j`, feel free to raise an Issue/PR :rocket:)
 
-In general, there are three key aspects to understand about building an Echarts Chart:
+In general, there are three key aspects to understand about building an Echarts Chart in `echarts4j`:
 
 - The `Canvas`, which contains all the charts and resources (`js, css...`), functioning similarly to an HTML page by
   default.
