@@ -5,9 +5,6 @@ import com.github.koooooo7.echarts4j.type.FuncStr;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.SuperBuilder;
-
-import java.util.List;
 
 public class DataZoom {
 

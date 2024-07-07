@@ -1,12 +1,8 @@
 package com.github.koooooo7.echarts4j.option.chart;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.koooooo7.echarts4j.option.embedded.chart.AxisLine;
-import com.github.koooooo7.echarts4j.option.embedded.chart.SplitArea;
-import com.github.koooooo7.echarts4j.option.embedded.chart.SplitLine;
-import com.github.koooooo7.echarts4j.option.embedded.series.NameTextStyle;
-import com.github.koooooo7.echarts4j.option.embedded.series.NameTruncate;
 import com.github.koooooo7.echarts4j.type.FuncStr;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
@@ -42,5 +38,75 @@ public class XAxis {
     private AxisLine axisLine;
     private SplitLine splitLine;
     private SplitArea splitArea;
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class NameTextStyle {
+    }
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class NameTruncate {
+    }
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class AxisLine {
+        private Boolean show;
+        private Boolean onZero;
+        private Integer onZeroAxisIndex;
+        private String symbol;
+        private FuncStr symbolSize;
+        private FuncStr symbolOffset;
+        private LineStyle lineStyle;
+
+
+        @Data
+        @Builder
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class LineStyle {
+            private String color;
+            private Integer width;
+            private FuncStr type;
+        }
+    }
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class SplitLine {
+        private Boolean show;
+        private String interval;
+        private LineStyle lineStyle;
+
+        @Data
+        @Builder
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class LineStyle {
+            private String color;
+            private Integer width;
+            private FuncStr type;
+        }
+    }
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class SplitArea {
+        private Boolean show;
+        private String interval;
+        private AreaStyle areaStyle;
+
+        @Data
+        @Builder
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public static class AreaStyle {
+            private String[] color;
+        }
+    }
+
 
 }
