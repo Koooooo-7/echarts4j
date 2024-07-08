@@ -2,8 +2,8 @@ package com.github.koooooo7.echarts4j.chart;
 
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.embedded.series.Label;
-import com.github.koooooo7.echarts4j.option.series.SunburstChartSeries;
+import com.github.koooooo7.echarts4j.option.series.sunburst.Label;
+import com.github.koooooo7.echarts4j.option.series.sunburst.SunburstChartSeries;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import org.junit.jupiter.api.Test;
 

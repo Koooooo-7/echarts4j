@@ -1,8 +1,8 @@
 package com.github.koooooo7.echarts4j.chart;
 
-import com.github.koooooo7.echarts4j.option.embedded.series.Emphasis;
-import com.github.koooooo7.echarts4j.option.embedded.series.ItemStyle;
-import com.github.koooooo7.echarts4j.option.embedded.series.Label;
+import com.github.koooooo7.echarts4j.option.series.sunburst.Emphasis;
+import com.github.koooooo7.echarts4j.option.series.sunburst.ItemStyle;
+import com.github.koooooo7.echarts4j.option.series.sunburst.Label;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,6 +26,6 @@ public class SunburstChart extends BaseChart<SunburstChart> {
         private Label label;
         private ItemStyle itemStyle;
         private Emphasis emphasis;
-        private List<?> children;
+        private List<SunburstDataItem> children;
     }
 }

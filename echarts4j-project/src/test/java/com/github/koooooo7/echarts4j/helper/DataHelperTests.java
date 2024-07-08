@@ -34,7 +34,6 @@ class DataHelperTests {
         builder.addData(dataSet);
 
         final List<LinkedHashMap<String, Object>> data = builder.get();
-        System.out.println(data);
         Assertions.assertEquals(5, data.size());
 
     }

@@ -5,7 +5,7 @@ import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Radar;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.RadarChartSeries;
+import com.github.koooooo7.echarts4j.option.series.radar.RadarChartSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

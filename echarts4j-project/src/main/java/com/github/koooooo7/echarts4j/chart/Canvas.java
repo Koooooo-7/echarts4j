@@ -157,7 +157,7 @@ public class Canvas {
          */
         public CanvasBuilder updateChart(String chartId, Consumer<Optional<Chart<?>>> chartModifier) {
             chartModifier.accept(Optional.ofNullable((canvas.getCharts().get(chartId))));
-            Optional.ofNullable(canvas.getCharts().get(chartId)).ifPresent(c->c.postProcessor(canvas));
+            Optional.ofNullable(canvas.getCharts().get(chartId)).ifPresent(c -> c.postProcessor(canvas));
             return this;
         }
 

@@ -4,7 +4,7 @@ import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
+import com.github.koooooo7.echarts4j.option.series.pie.PieChartSeries;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;

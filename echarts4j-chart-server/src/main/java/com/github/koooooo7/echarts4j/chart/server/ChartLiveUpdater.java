@@ -74,7 +74,7 @@ public final class ChartLiveUpdater {
                         setup = true;
                     }
 
-                    // render it to make sure it is updatable and sync the latest statue
+                    // render it to make sure it is updatable and sync the latest status
                     try {
                         canvas.render();
                         liveUpdateChangeFound = true;

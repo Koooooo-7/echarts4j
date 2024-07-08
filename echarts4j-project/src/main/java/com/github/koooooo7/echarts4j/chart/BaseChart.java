@@ -27,6 +27,7 @@ public abstract class BaseChart<T extends Chart<T>> extends Container implements
     private ChartOption options;
     private final List<String> functions = new ArrayList<>();
     private final List<Listener> listeners = new ArrayList<>();
+    private boolean async;
 
     @Override
     public T addJSFunction(FuncStr funcStr) {

@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.LineChartSeries;
+import com.github.koooooo7.echarts4j.option.series.line.LineChartSeries;
 import com.github.koooooo7.echarts4j.render.Render;
 import com.github.koooooo7.echarts4j.render.RenderProvider;
 import com.github.koooooo7.echarts4j.type.FuncStr;

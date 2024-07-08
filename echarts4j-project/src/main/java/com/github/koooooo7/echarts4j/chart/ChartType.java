@@ -23,6 +23,7 @@ public enum ChartType {
     Radar("radar"),
     Sunburst("sunburst"),
     Candlestick("candlestick"),
+    Tree("tree"),
     ;
 
     private final String type;

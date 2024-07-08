@@ -21,8 +21,9 @@ class JsonUtilTests {
                         .formatter(FuncStr.of(legendFormatter))
                         .build())
                 .build();
-        final String test = JsonUtil.writeValueAsString(option);
-        System.out.println(test);
+        final String expect = "{\"legend\":{\"formatter\":'Legend {name}',\"left\":\"left\"},\"series\":[]}";
+        final String actual = JsonUtil.writeValueAsString(option);
+        Assertions.assertEquals(expect, actual);
     }
 
     @Test

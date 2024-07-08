@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.ext.charts.series.LiquidFillChartSeries;
 import com.github.koooooo7.echarts4j.helper.DataHelper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
 import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.series.PieChartSeries;
+import com.github.koooooo7.echarts4j.option.series.pie.PieChartSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

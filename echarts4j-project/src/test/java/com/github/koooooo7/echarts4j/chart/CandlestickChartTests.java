@@ -8,8 +8,8 @@ import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Tooltip;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.embedded.series.ItemStyle;
-import com.github.koooooo7.echarts4j.option.series.CandlestickChartSeries;
+import com.github.koooooo7.echarts4j.option.series.candlestick.CandlestickChartSeries;
+import com.github.koooooo7.echarts4j.option.series.candlestick.ItemStyle;
 import com.github.koooooo7.echarts4j.type.FuncStr;
 import org.junit.jupiter.api.Test;
 
