@@ -24,7 +24,8 @@ this further. *( contents polished by `ChartGPT-4`)*
 > Support JDK8+ with `"JDK Sympathy"` (you do need upgrade it tho!)
 
 It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT), 
-the latest version is  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
+you can use the `main-SNAPSHOT` to fetch the latest version or the lock
+version  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
 .
 
 <details>
@@ -38,7 +39,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:main-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT'
 }
 
 ```
@@ -59,7 +60,7 @@ dependencies {
 <dependency>
     <groupId>com.github.Koooooo-7.echarts4j</groupId>
     <artifactId>echarts4j-project</artifactId>
-    <version>main-SNAPSHOT</version>
+    <version>v1.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
