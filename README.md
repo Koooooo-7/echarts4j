@@ -26,7 +26,7 @@ this further. *( contents polished by `ChartGPT-4`)*
 > Support JDK8+ with `"JDK Sympathy"` (you do need upgrade it tho!)
 
 It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT),
-you can use the `main-SNAPSHOT` to fetch the latest version or the lock
+you can use the `main-SNAPSHOT` to fetch the latest version or the lock commit hash
 version  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
 .
 

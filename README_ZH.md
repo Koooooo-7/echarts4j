@@ -10,7 +10,7 @@
 > Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can
 > be beaten. —— Neil Gaiman, Coraline
 
-#### 如果说你需要一个生成图表的Java库，可以试试看echarts4j。:dog:
+#### 如果说你需要一个生成图表的Java库，可以试试看echarts4j。 🍉
 
 [README English](./README.md)
 
