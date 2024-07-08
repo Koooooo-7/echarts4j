@@ -10,28 +10,21 @@
 > Fairy tales are more than true: not because they tell us that dragons exist, but because they tell us that dragons can
 > be beaten. —— Neil Gaiman, Coraline
 
-To be honest, I believe using `Java` to build charts is a disaster, as it often feels like struggling in the explicit
-typed hell, accompanied by lengthy lines of code.. However, it also piques my interest in finding ways to approach it
-with a more loosely coupled mindset (not just dumping
-everything as pure `Object`s 🐶). With increased experience in [Echarts](https://echarts.apache.org/) and discovering
-various tricks, I've become even more curious about the possibilities. Fortunately, I now have the time to delve into
-this further. *( contents polished by `ChartGPT-4`)*
+#### 如果说你需要一个生成图表的Java库，可以试试看echarts4j。:dog:
 
----
+[README English](./README.md)
 
-[README 中文](./README.md)
+### 🔰 安装
 
-### 🔰 Installation
+> 支持 JDK8+ (别再停留在万年JDK8了...)
 
-> Support JDK8+ with `"JDK Sympathy"` (you do need upgrade it tho!)
-
-It hosts on [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT),
-you can use the `main-SNAPSHOT` to fetch the latest version or the lock
-version  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
+项目在 [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT)上,
+你可以使用 `main-SNAPSHOT` 来获得最新的版本，或者使用锁定的最新版本
+[![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
 .
 
 <details>
-  <summary>Install via Gradle</summary>
+  <summary>Gradle项目导入</summary>
 
 ```gradle
 repositories {
@@ -49,7 +42,7 @@ dependencies {
 </details>
 
 <details>
-  <summary>Install via Maven</summary>
+  <summary>Maven项目导入</summary>
 
 ```pom
 <repositories>
@@ -70,32 +63,28 @@ dependencies {
 
 ### ✨ Features
 
-* Smooth builder APIs.
-* Highly configurable chart options.
-* Lots of beauty charts available.
-* Closely to the full Echarts functionalities.
-* Strong Extensibility.
-* Live update support for displaying (see [echarts4j-chart-server](./echarts4j-chart-server/README.md)).
-* Snapshot for image render (see [echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)).
+* 丝滑的 builder APIs。
+* 高可配置性（依托于Echarts)。
+* 高扩展性，实现Echarts更多功能。
+* 支持动态更新展示图表 ([echarts4j-chart-server](./echarts4j-chart-server/README.md)).
+* 支持渲染成图片 ([echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)).
 
 ---
 
 ### 📝 RunBook
 
-In a nutshell, it generates [Apache Echarts](https://echarts.apache.org/) options for the Echarts instance.
-If you already familiar with [Echarts](https://echarts.apache.org/), you can quickly dive in.
+简而言之, 就是生成 [Apache Echarts](https://echarts.apache.org/) 所需要的配置。
+如果你过一下 [Echarts](https://echarts.apache.org/)的文档，就可以很快上手了。
 
-- Take a quick look at the [Echarts Demos](https://echarts.apache.org/examples/en/index.html) to find what you need.
-- Refer to the available [Echarts Options](https://echarts.apache.org/en/option.html#title) to understand how to
-  configure.  
-  (If it is missing in `echarts4j`, feel free to raise an Issue/PR :rocket:)
+- 比如去 [Echarts Demos](https://echarts.apache.org/examples/en/index.html) 找一个图表，看看它的配置组成部分.
+- 在这些配置中 [Echarts Options](https://echarts.apache.org/en/option.html#title) 知道有哪些配置可以使用。
+  (如果有配置在 `echarts4j` 中缺失, 欢迎提交 Issue/PR :rocket:)
 
-In general, there are three key aspects to understand about building an Echarts Chart in `echarts4j`:
+在 `echarts4j`中有3个主要的对象:
 
-- The `Canvas`, which contains all the charts and resources (`js, css...`), functioning similarly to an HTML page by
-  default.
-- The `Chart`, representing a Chart instance, with generic chart configurations, such as Title, Toolbox, and more.
-- The `Series`, which resides within the Charts, where each type of Series indicates the underlying chart type.
+- `Canvas`, 代表了承载了图表的基础容器，比如HTML页面，即默认最终的渲染结果。
+- `Chart`, 代表的就是一个图表实例，主要就是规定了它的类型，并配置`ChartOptions`。
+- `Series`, 代表了对应的`series`的配置部分。
 
 ```
 |————————————  
@@ -122,7 +111,7 @@ In general, there are three key aspects to understand about building an Echarts 
 
 ---
 
-### 📊 Usage
+### 📊 使用示例
 
 > Basic Chart
 
@@ -296,15 +285,15 @@ In general, there are three key aspects to understand about building an Echarts 
 
 ### 🚀 Contribution
 
-- New feature and bug fix are both great.
-- Issue driven or PR driven is better.
-- Options enrichment is highly welcome.
+- 新的特性个功能，或者bug修复都欢迎！
+- 通过Issue或者PR来drive更好。
+- 亟待增加/修正配置项目贡献。
 
 ---
 
 ### 🎉 Special Thanks
 
-Gratitude to all outstanding projects/libraries for their contributions in echarts4j.
+感谢所有`echarts4j`依赖的优秀的开源项目。
 
 ### 📃 License
 
