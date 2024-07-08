@@ -19,7 +19,7 @@ this further. *( contents polished by `ChartGPT-4`)*
 
 ---
 
-[README 中文](./README.md)
+[README 中文](./README_ZH.md)
 
 ### 🔰 Installation
 
