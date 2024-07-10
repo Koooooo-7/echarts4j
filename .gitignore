@@ -71,3 +71,6 @@ bin/
 /echarts4j-snapshot-playwright/*.jpg
 /echarts4j-snapshot-playwright/*.png
 /echarts4j-snapshot-playwright/*.jpeg
+
+### Exclude page
+!/docs/index.html

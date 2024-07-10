@@ -1,107 +1,158 @@
-package com.github.koooooo7.echarts4j.chart;
+# echarts4j
 
-import com.github.koooooo7.echarts4j.helper.DataHelper;
-import com.github.koooooo7.echarts4j.option.ChartOption;
-import com.github.koooooo7.echarts4j.option.chart.Legend;
-import com.github.koooooo7.echarts4j.option.chart.Title;
-import com.github.koooooo7.echarts4j.option.chart.Toolbox;
-import com.github.koooooo7.echarts4j.option.chart.Tooltip;
-import com.github.koooooo7.echarts4j.option.chart.XAxis;
-import com.github.koooooo7.echarts4j.option.chart.YAxis;
-import com.github.koooooo7.echarts4j.option.series.line.LineChartSeries;
-import com.github.koooooo7.echarts4j.option.series.line.MarkLine;
-import com.github.koooooo7.echarts4j.option.series.line.MarkPoint;
-import com.github.koooooo7.echarts4j.render.Render;
-import com.github.koooooo7.echarts4j.render.RenderProvider;
-import com.github.koooooo7.echarts4j.type.FuncStr;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+Echarts4j does rely on the power of [Apache Echarts](https://echarts.apache.org/), so we don't cost too much time into
+details.
+Instead, we do practice, let's see how you could create a chart with the [Apache Echarts](https://echarts.apache.org/)
+docs step by step.
 
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+## Echarts
 
-public class LineChartTests {
-    private final List<Object> data1 = new ArrayList<>();
-    private final List<Object> data2 = new ArrayList<>();
-    private final List<String> x = new ArrayList<>();
+You could open the [Apache Demo Page](https://echarts.apache.org/examples/en/index.html) and find all the charts echarts
+provided. Ideally, echarts4j could support all of them in further (wait your contribution also !).
 
-    @BeforeEach
-    void setUp() {
-        data1.clear();
-        data2.clear();
-        x.clear();
-        for (int i = 0; i < 20; i++) {
-            data1.add(ThreadLocalRandom.current().nextInt(100));
-            data2.add(ThreadLocalRandom.current().nextInt(100));
-            x.add(RandomStringUtils.random(3, true, false));
-        }
+I don't want to make the sample too simple and useless, so we pick
+the [Line Chart - Temperature Change in the Coming Week](https://echarts.apache.org/examples/en/index.html#chart-type-line)
+. (the right bottom corner in the screenshot below)
 
+![](./assets/quick-start-echarts-line.png ':size=60%')
+
+Click it, you can jump to the [Echarts Editor](https://echarts.apache.org/examples/en/editor.html?c=line-marker) page to
+see how does it create.
+
+There is what it is I pasted below, I suppose we should see them the same.
+
+```
+option = {
+  title: {
+    text: 'Temperature Change in the Coming Week'
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {},
+  toolbox: {
+    show: true,
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      dataView: { readOnly: false },
+      magicType: { type: ['line', 'bar'] },
+      restore: {},
+      saveAsImage: {}
     }
-
-    @Test
-    void shouldRenderCorrectly_WhenRenderTheLineCharts_GivenRelatedConfigs() throws IOException {
-
-        final String chartTitle = "My Charts";
-        final String legendFormatter = "'Legend {name}'";
-        final String seriesName = "seriesName";
-        final String seriesName2 = "seriesName2";
-
-        final LineChart c = LineChart.builder()
-                .options(ChartOption.builder()
-                        .title(Title.builder()
-                                .text(chartTitle).build())
-                        .legend(Legend.builder()
-                                .formatter(FuncStr.of(legendFormatter)).build())
-                        .toolbox(Toolbox.builder()
-                                .showTitle(true)
-                                .feature(Toolbox.Feature.builder()
-                                        .saveAsImage(Toolbox.SaveAsImage.builder().build())
-                                        .restore(Toolbox.Restore.builder().build())
-                                        .dataView(Toolbox.DataView.builder().build())
-                                        .build())
-                                .build())
-                        .xAxis(XAxis.builder()
-                                .data(x)
-                                .build())
-                        .yAxis(YAxis.builder().build())
-                        .build()
-                        .addSeries(LineChartSeries.builder()
-                                .name(seriesName)
-                                .data(data1)
-                                .build())
-                        .addSeries(LineChartSeries.builder()
-                                .name(seriesName2)
-                                .data(data2)
-                                .build())
-                )
-                .build();
-
-
-        try (StringWriter writer = new StringWriter()) {
-            final Canvas cvs = Canvas.builder()
-                    .addCharts(c)
-                    .build();
-            final Render render = RenderProvider.get();
-            render.render(cvs, writer);
-//            render.render(cvs, new FileWriter("line.html"));
-        } catch (Exception e) {
-            Assertions.fail();
-        }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value',
+    axisLabel: {
+      formatter: '{value} °C'
     }
+  },
+  series: [
+    {
+      name: 'Highest',
+      type: 'line',
+      data: [10, 11, 13, 11, 12, 12, 9],
+      markPoint: {
+        data: [
+          { type: 'max', name: 'Max' },
+          { type: 'min', name: 'Min' }
+        ]
+      },
+      markLine: {
+        data: [{ type: 'average', name: 'Avg' }]
+      }
+    },
+    {
+      name: 'Lowest',
+      type: 'line',
+      data: [1, -2, 2, 5, 3, 2, 0],
+      markPoint: {
+        data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+      },
+      markLine: {
+        data: [
+          { type: 'average', name: 'Avg' },
+          [
+            {
+              symbol: 'none',
+              x: '90%',
+              yAxis: 'max'
+            },
+            {
+              symbol: 'circle',
+              label: {
+                position: 'start',
+                formatter: 'Max'
+              },
+              type: 'max',
+              name: '最高点'
+            }
+          ]
+        ]
+      }
+    }
+  ]
+};
+```
 
-    @Test
-    void shouldRenderCorrectly_WhenRenderTheLineCharts_GivenRelatedConfigsForSample_Temperature_Change_in_the_Coming_Week() {
+We can see all the thing is called an `option`, it contains lots of `keys` ( we could name they are `mino options`
+also ).
+The `option` is the global option layer for Echarts instance, the `mino option` is what we need to config usually for a
+chart.
 
-        final LineChart lineChart = LineChart.builder()
+You are so smart to be aware of those things easily:
+
+**General configs:**
+
+- title  
+  Config the chart title ( we can see in the chart obviously).
+- toolbox  
+  Config the `Toolbox`s ( we can see in the chart top right corner).
+
+- xAxis
+
+- yAxis
+  ...
+
+**Series configs:**
+> In Echarts, the series is the real part to indicate what the chart type is.
+> You could try to change one of the series type from `line` to `bar` in the sample to see what happens.
+
+Series
+
+- type: what the chart should be.
+- data: the dataset of the chart.
+
+The other options for the charts, literally the single series.
+
+- markPoint
+- markLine
+- ...
+
+---
+
+## Echarts4j
+
+I believe you already understand how does Echarts make charts, let me see how does echarts4j to do it.
+Talk is cheap, show you the code.
+
+> Too long to show here directly...plz open the code blocks below :)
+
+
+<details>
+
+  <summary>The code to create the chart</summary>
+
+> The `Chart` defines all the options.
+
+```go
+    final LineChart lineChart = LineChart.builder()
                 .options(ChartOption.builder()
                         .title(Title.builder().text("Temperature Change in the Coming Week").build())
                         .tooltip(Tooltip.builder().trigger("axis").build())
@@ -184,26 +235,37 @@ public class LineChartTests {
                                 .build())
                 )
                 .build();
+```
 
-        Canvas.builder()
-                .addCharts(lineChart)
-                .build()
-                .renderTo(new File("Temperature-Change-in-the-Coming-Week.html"));
+</details>
+
+<details>
+<summary>The code to render it out</summary>
+
+> The `Canvas` is the `Charts`' Container with `render` support to HTML(default), Image...
+
+```go
+ Canvas.builder()
+        .addCharts(lineChart)
+        .build()
+        .renderTo(new File("Temperature-Change-in-the-Coming-Week.html"));
+
+```
+
+</details>
 
 
-        final String JsFuncStr = "console.log('echarts4j!');";
-        final String JsFuncStrWithInstanceInjection = "console.log(%MY_ECHARTS%.getOption());";
-        Canvas.builder()
-                .addCharts(
-                        LineChart.builder()
-                                .options(ChartOption.builder().build())
-                                .build()
-                                .addJSFunction(FuncStr.of(JsFuncStr))
-                                .addJSFunction(FuncStr.of(JsFuncStrWithInstanceInjection))
+It is quite simple and straightforward, isn't it?!
 
-                )
-                .build()
-                .renderTo(new File("js.html"));
+You may see some stuff such as `DataHelper` or `FunStr`, they are just some utilities for options build.
 
-    }
-}
+Now, you already know how to play with echarts4j.
+You may have questions - `How do you know what configurations I can use in chart?`
+
+Biu~ Here it is!
+The  [Echarts Configurations](https://echarts.apache.org/en/option.html#title) lists almost the things you want.
+The only problem is echarts4j has not sync all the options already, feel free to make you contributions here!
+
+
+---
+If you are still interested in the echarts4j itself. Plz continue goto [DiveInto](DiveInto.md).

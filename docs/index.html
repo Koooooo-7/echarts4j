@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="echarts4j - An inevitable charts library for Java.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+<div id="app"></div>
+<script>
+    window.$docsify = {
+        name: 'echarts4j',
+        repo: 'https://github.com/Koooooo-7/echarts4j',
+        coverpage: true,
+        hideSidebar: true,
+        auto2top: true,
+        plugins: [
+            (hook) => {
+                const footer = [
+                    '<hr/>',
+                    '<footer>',
+                    '<span> &copy; MIT<a href="https://github.com/Koooooo-7/echarts4j"> echarts4j </a></span>&nbsp;',
+                    '<span>powered by <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+                    '</footer>'
+                ].join('');
+
+                hook.afterEach(function (html) {
+                    return html + footer
+                })
+            }
+        ]
+    }
+</script>
+<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+</body>
+</html>

@@ -35,6 +35,7 @@ public class YAxis {
     private Boolean silent;
     private Boolean triggerEvent;
     private AxisLine axisLine;
+    private AxisLabel axisLabel;
     private SplitLine splitLine;
     private SplitArea splitArea;
 
@@ -49,6 +50,13 @@ public class YAxis {
     @Builder
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class NameTruncate {
+    }
+
+    @Data
+    @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class AxisLabel {
+        private FuncStr formatter;
     }
 
     @Data
