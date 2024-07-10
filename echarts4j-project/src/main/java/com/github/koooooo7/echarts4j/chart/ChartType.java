@@ -24,6 +24,7 @@ public enum ChartType {
     Sunburst("sunburst"),
     Candlestick("candlestick"),
     Tree("tree"),
+    Funnel("funnel"),
     ;
 
     private final String type;
