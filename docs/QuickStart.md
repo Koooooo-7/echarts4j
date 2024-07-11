@@ -1,6 +1,7 @@
 # echarts4j
 
-Echarts4j does rely on the power of [Apache Echarts](https://echarts.apache.org/), so we don't cost too much time into
+Echarts4j does rely on the power of [Apache Echarts](https://echarts.apache.org/) (especially, v5+ version), so we don't
+cost too much time into
 details.
 Instead, we do practice, let's see how you could create a chart with the [Apache Echarts](https://echarts.apache.org/)
 docs step by step.

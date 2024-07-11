@@ -1,6 +1,6 @@
 # echarts4j
 
-[![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
+[![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT)
 ![Echarts](https://img.shields.io/badge/echarts-_v5+-orange)
 ![JDK](https://img.shields.io/badge/JDK-8+-blue)
 ![License](https://img.shields.io/badge/License-Apache-2.0-brightgreen.svg)
