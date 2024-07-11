@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT-rc1'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT-rc2'
 }
 
 ```
@@ -63,7 +63,7 @@ dependencies {
 <dependency>
     <groupId>com.github.Koooooo-7.echarts4j</groupId>
     <artifactId>echarts4j-project</artifactId>
-    <version>v1.0.0-SNAPSHOT-rc1</version>
+    <version>v1.0.0-SNAPSHOT-rc2</version>
 </dependency>
 ```
 

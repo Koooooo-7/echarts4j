@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-chart-server:main-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-chart-server:<Version rules same to echarts4j>'
 }
 ```
 
@@ -69,11 +69,11 @@ A handy way is placing `SimpleChartServerRender.on();` on the last.
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(LineChartSeriesOption.builder()
+                        .addSeries(LineChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())

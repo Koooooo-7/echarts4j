@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-snapshot-playwright:main-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-snapshot-playwright:<Version rules same to echarts4j>'
 }
 ```
 

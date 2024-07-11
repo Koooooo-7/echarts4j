@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-3rd-charts:main-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-3rd-charts:<Version rules same to echarts4j>'
 }
 ```
 
@@ -69,7 +69,7 @@ dependencies {
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Pie Chart").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
+                                .addSeries(PieChartSeries.builder()
                                         .data(data).build()))
                         .build()).build()
                 .render();
@@ -88,7 +88,7 @@ dependencies {
                         .options(ChartOption.builder()
                                 .title(Title.builder().text("Pie Chart").build())
                                 .build()
-                                .addSeries(PieChartSeriesOption.builder()
+                                .addSeries(PieChartSeries.builder()
                                         .data(data).build()))
                         .build())
                 .build();
