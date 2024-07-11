@@ -31,6 +31,10 @@ you can use the `main-SNAPSHOT` to fetch the latest version or the lock commit h
 version  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
 .
 
+**Attention:**
+The preset `Render`s have the same order, if you import the `echarts4j` with whole
+plugins support (submodules here), you may need use the specific `Render` to work.
+
 <details>
   <summary>Install via Gradle</summary>
 
