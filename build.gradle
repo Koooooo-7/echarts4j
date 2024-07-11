@@ -51,7 +51,7 @@ subprojects {
         manifest {
             attributes(
                     'Built-By': 'KoyZhuang',
-                    'Build-LICENSE': 'MIT',
+                    'Build-LICENSE': 'Apache-2.0 license',
                     'Build-Version': project.echarts4jVersion,
                     'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
             )
@@ -80,7 +80,7 @@ subprojects {
                     url = 'https://github.com/Koooooo-7/echarts4j'
                     licenses {
                         license {
-                            name = 'MIT'
+                            name = 'Apache-2.0 license'
                             url = 'https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE'
                         }
                     }

@@ -144,4 +144,4 @@ A handy way is placing `SimpleChartServerRender.on();` on the last.
 
 ### 📃 License
 
-MIT [©KoyZhuang](https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE)
+Apache-2.0 license [©KoyZhuang](https://github.com/Koooooo-7/echarts4j/blob/main/LICENSE)
