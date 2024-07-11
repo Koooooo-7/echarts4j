@@ -78,7 +78,7 @@ dependencies {
 * Strong Extensibility.
 * Live update support for displaying (see [echarts4j-chart-server](./echarts4j-chart-server/README.md)).
 * Snapshot for image render (see [echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)).
-* And more
+* And more.
 
 ### 🎨 Showcase
 
@@ -228,11 +228,11 @@ the [JavaDoc](https://javadoc.jitpack.io/com/github/koooooo-7/echarts4j/echarts4
                                 .build())
                         .yAxis(YAxis.builder().build())
                         .build()
-                        .addSeries(ListChartSeriesOption.builder()
+                        .addSeries(ListChartSeries.builder()
                                 .name(seriesName)
                                 .data(data1)
                                 .build())
-                        .addSeries(BarChartSeriesOption.builder()
+                        .addSeries(BarChartSeries.builder()
                                 .name(seriesName2)
                                 .data(data2)
                                 .build())
@@ -294,7 +294,7 @@ the [JavaDoc](https://javadoc.jitpack.io/com/github/koooooo-7/echarts4j/echarts4
                             .data(legendData)
                             .build())
                     .build()
-                    .addSeries(PieChartSeriesOption.builder()
+                    .addSeries(PieChartSeries.builder()
                             .name(seriesName)
                             .radius("55%")
                             .center(center)

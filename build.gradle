@@ -5,6 +5,7 @@ plugins {
 }
 
 version project.echarts4jVersion
+description ':doughnut: An inevitable charts library for Java.'
 
 allprojects {
     group 'com.github.koooooo7.echarts4j'
