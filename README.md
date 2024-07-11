@@ -31,7 +31,7 @@ version  [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitp
 .
 
 <details>
-  <summary>Install via Gradle</summary>
+  <summary><strong>Install via Gradle</strong></summary>
 
 ```gradle
 repositories {
@@ -41,15 +41,16 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT-rc1'
 }
 
 ```
 
 </details>
 
+
 <details>
-  <summary>Install via Maven</summary>
+  <summary><strong>Install via Maven</strong></summary>
 
 ```pom
 <repositories>
@@ -62,7 +63,7 @@ dependencies {
 <dependency>
     <groupId>com.github.Koooooo-7.echarts4j</groupId>
     <artifactId>echarts4j-project</artifactId>
-    <version>v1.0.0-SNAPSHOT</version>
+    <version>v1.0.0-SNAPSHOT-rc1</version>
 </dependency>
 ```
 
@@ -77,6 +78,24 @@ dependencies {
 * Strong Extensibility.
 * Live update support for displaying (see [echarts4j-chart-server](./echarts4j-chart-server/README.md)).
 * Snapshot for image render (see [echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)).
+* And more
+
+### 🎨 Showcase
+
+<div align="center">
+<img src="docs/assets/line-sample.png" width="25%" alt="bar"/>
+<img src="docs/assets/bar.png" width="25%" alt="bar"/>
+<img src="docs/assets/candlestick.png" width="22%" alt="bar"/>
+<img src="docs/assets/overlap.png" width="24%" alt="bar"/>
+<img src="docs/assets/dynamic-pie.png" width="26%" alt="bar"/>
+<img src="docs/assets/funnel.png" width="23%" alt="bar"/>
+<img src="docs/assets/tree.png" width="22%" alt="bar"/>
+<img src="docs/assets/effectscatter.png" width="26%" alt="bar"/>
+<img src="docs/assets/sunburst.png" width="25%" alt="bar"/>
+<img src="docs/assets/radar.png" width="24%" alt="bar"/>
+<img src="docs/assets/liquidfill.png" width="24%" alt="bar"/>
+<img src="docs/assets/wordcloud.png" width="24%" alt="bar"/>
+</div>
 
 ---
 
@@ -119,6 +138,10 @@ In general, there are three key aspects to understand about building an Echarts 
  ———————————
 
 ```
+
+More details please see the [QuickStart](https://koooooo-7.github.io/echarts4j/#/QuickStart) and
+the [JavaDoc](https://javadoc.jitpack.io/com/github/koooooo-7/echarts4j/echarts4j-project/main-SNAPSHOT/javadoc/index.html)
+.
 
 ---
 

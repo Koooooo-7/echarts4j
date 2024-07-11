@@ -69,6 +69,22 @@ dependencies {
 * 支持动态更新展示图表 ([echarts4j-chart-server](./echarts4j-chart-server/README.md)).
 * 支持渲染成图片 ([echarts4j-snapshot-playwright](./echarts4j-snapshot-playwright/README.md)).
 
+### 🎨 Showcase
+
+<div align="center">
+<img src="docs/assets/line-sample.png" width="25%" alt="bar"/>
+<img src="docs/assets/bar.png" width="25%" alt="bar"/>
+<img src="docs/assets/candlestick.png" width="22%" alt="bar"/>
+<img src="docs/assets/overlap.png" width="24%" alt="bar"/>
+<img src="docs/assets/dynamic-pie.png" width="26%" alt="bar"/>
+<img src="docs/assets/funnel.png" width="23%" alt="bar"/>
+<img src="docs/assets/tree.png" width="22%" alt="bar"/>
+<img src="docs/assets/effectscatter.png" width="26%" alt="bar"/>
+<img src="docs/assets/sunburst.png" width="25%" alt="bar"/>
+<img src="docs/assets/radar.png" width="24%" alt="bar"/>
+<img src="docs/assets/liquidfill.png" width="24%" alt="bar"/>
+<img src="docs/assets/wordcloud.png" width="24%" alt="bar"/>
+</div>
 ---
 
 ### 📝 RunBook

@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -136,7 +137,7 @@ public class ScatterChartTests {
                     .build();
             final Render render = RenderProvider.get();
             render.render(cvs, writer);
-//            render.render(cvs, new FileWriter("effect-scatter.html"));
+            render.render(cvs, new FileWriter("effect-scatter.html"));
         } catch (Exception e) {
             Assertions.fail();
         }
