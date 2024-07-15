@@ -1,0 +1,14 @@
+plugins {
+    id 'antlr'
+}
+ext {
+    antlr4Version = "4.13.1"
+}
+
+description ':doughnut: An extension for echarts4j for tpl specification.'
+
+
+dependencies {
+    antlr "org.antlr:antlr4:$antlr4Version"
+    implementation project(":echarts4j-project")
+}
