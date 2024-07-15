@@ -1,0 +1,12 @@
+Canvas myEcharts4j [
+
+  line myLineChart {
+   title=>myLine
+   toolbox=> dataView restore saveAsImage
+  }
+
+  bar myBarChart {
+   title=>myBar
+   toolbox=> saveAsImage
+  }
+]
