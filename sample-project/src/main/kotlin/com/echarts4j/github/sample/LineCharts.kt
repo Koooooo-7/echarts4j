@@ -6,7 +6,7 @@ import com.github.koooooo7.echarts4j.option.ChartOption
 import com.github.koooooo7.echarts4j.option.chart.Title
 import com.github.koooooo7.echarts4j.option.chart.Toolbox
 import com.github.koooooo7.echarts4j.option.chart.Toolbox.SaveAsImage
-import com.github.koooooo7.echarts4j.option.series.LineChartSeries
+import com.github.koooooo7.echarts4j.option.series.line.LineChartSeries
 import java.io.File
 
 
@@ -37,6 +37,6 @@ private fun basicLineCharts() {
                 ).build()
         )
         .build()
-        .renderTo(File("./generated/basic-line.html"))
+        .renderTo(File("./sample-project/generated/basic-line.html"))
 }
 
