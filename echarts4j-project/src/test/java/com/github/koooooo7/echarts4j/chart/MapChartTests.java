@@ -3,6 +3,7 @@ package com.github.koooooo7.echarts4j.chart;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.koooooo7.echarts4j.option.ChartOption;
+import com.github.koooooo7.echarts4j.option.chart.Title;
 import com.github.koooooo7.echarts4j.option.chart.Tooltip;
 import com.github.koooooo7.echarts4j.option.chart.VisualMap;
 import com.github.koooooo7.echarts4j.option.series.map.Emphasis;
@@ -20,8 +21,9 @@ import java.util.Map;
 class MapChartTests {
 
 
+    // the case replicate from the official sample: https://echarts.apache.org/examples/en/editor.html?c=geo-beef-cuts
     @Test
-    void testChart() throws JsonProcessingException {
+    void shouldRenderTheCowPic_GivenTheRegisterMapAndConfig_WhenBuildTheMap() throws JsonProcessingException {
         final String registerMapScript = "./src/test/resources/data/map/asset/cow.js";
 
         final Map map = new ObjectMapper().readValue(data, Map.class);
@@ -29,6 +31,7 @@ class MapChartTests {
         Canvas.builder()
                 .addCharts(MapChart.builder()
                         .options(ChartOption.builder()
+                                .title(Title.builder().text("Echarts4j-Cowboy").build())
                                 .tooltip(Tooltip.builder().build())
                                 .visualMap(Collections.singletonList(VisualMap.builder()
                                         .left(FuncStr.ofStr("center"))

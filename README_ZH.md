@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0-SNAPSHOT'
+   implementation 'com.github.Koooooo-7.echarts4j:echarts4j-project:v1.0.0'
 }
 
 ```
@@ -55,7 +55,7 @@ dependencies {
 <dependency>
     <groupId>com.github.Koooooo-7.echarts4j</groupId>
     <artifactId>echarts4j-project</artifactId>
-    <version>v1.0.0-SNAPSHOT</version>
+    <version>v1.0.0</version>
 </dependency>
 ```
 
@@ -72,18 +72,19 @@ dependencies {
 ### 🎨 Showcase
 
 <div align="center">
-<img src="docs/assets/line-sample.png" width="25%" alt="bar"/>
+<img src="docs/assets/line-sample.png" width="25%" alt="line"/>
 <img src="docs/assets/bar.png" width="25%" alt="bar"/>
-<img src="docs/assets/candlestick.png" width="22%" alt="bar"/>
-<img src="docs/assets/overlap.png" width="24%" alt="bar"/>
-<img src="docs/assets/dynamic-pie.png" width="26%" alt="bar"/>
-<img src="docs/assets/funnel.png" width="23%" alt="bar"/>
-<img src="docs/assets/tree.png" width="22%" alt="bar"/>
-<img src="docs/assets/effectscatter.png" width="26%" alt="bar"/>
-<img src="docs/assets/sunburst.png" width="25%" alt="bar"/>
-<img src="docs/assets/radar.png" width="24%" alt="bar"/>
-<img src="docs/assets/liquidfill.png" width="24%" alt="bar"/>
-<img src="docs/assets/wordcloud.png" width="24%" alt="bar"/>
+<img src="docs/assets/candlestick.png" width="22%" alt="candlestick"/>
+<img src="docs/assets/overlap.png" width="24%" alt="overlap"/>
+<img src="docs/assets/dynamic-pie.png" width="26%" alt="dynamic-pie"/>
+<img src="docs/assets/funnel.png" width="23%" alt="funnel"/>
+<img src="docs/assets/tree.png" width="22%" alt="tree"/>
+<img src="docs/assets/effectscatter.png" width="26%" alt="effectscatter"/>
+<img src="docs/assets/sunburst.png" width="25%" alt="sunburst"/>
+<img src="docs/assets/radar.png" width="24%" alt="radar"/>
+<img src="docs/assets/liquidfill.png" width="24%" alt="liquidfill"/>
+<img src="docs/assets/wordcloud.png" width="24%" alt="wordcloud"/>
+<img src="docs/assets/cow.png" width="50%" alt="cowboy"/>
 </div>
 ---
 
