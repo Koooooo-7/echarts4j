@@ -16,9 +16,9 @@ public class Echarts4jC {
         CommonTokenStream tokens = new CommonTokenStream(new Echarts4jLexer(CharStreams.fromStream(is)));
         final Echarts4jParser echarts4jParser = new Echarts4jParser(tokens);
         final ParseTreeWalker parseTreeWalker = new ParseTreeWalker();
-        final Echarts4jDefListener echarts4jDefListener = new Echarts4jDefListener();
-        parseTreeWalker.walk(echarts4jDefListener, echarts4jParser.start());
-        return echarts4jDefListener.get();
+        final Echarts4jDefListener echarts4JDefListener = new Echarts4jDefListener();
+        parseTreeWalker.walk(echarts4JDefListener, echarts4jParser.start());
+        return echarts4JDefListener.get();
 
     }
 }

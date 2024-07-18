@@ -8,6 +8,7 @@ import com.github.koooooo7.echarts4j.option.chart.Legend;
 import com.github.koooooo7.echarts4j.option.chart.Radar;
 import com.github.koooooo7.echarts4j.option.chart.Toolbox;
 import com.github.koooooo7.echarts4j.option.chart.Tooltip;
+import com.github.koooooo7.echarts4j.option.chart.VisualMap;
 import com.github.koooooo7.echarts4j.option.chart.XAxis;
 import com.github.koooooo7.echarts4j.option.chart.YAxis;
 import com.github.koooooo7.echarts4j.option.series.SeriesOption;
@@ -34,6 +35,7 @@ public class ChartOption {
     private YAxis yAxis;
     private Radar radar;
     private List<? extends DataZoom> dataZoom;
+    private List<? extends VisualMap> visualMap;
     private Tooltip tooltip;
     private Toolbox toolbox;
     private Object color;

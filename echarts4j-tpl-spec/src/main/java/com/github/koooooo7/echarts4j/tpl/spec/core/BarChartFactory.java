@@ -6,7 +6,8 @@ import com.github.koooooo7.echarts4j.option.ChartOption;
 public class BarChartFactory implements ChartFactory<BarChart> {
     @Override
     public BarChart getChart() {
-        return BarChart.builder().options(ChartOption.builder().build()).build();
+        return BarChart.builder().options(ChartOption.builder()
+                .build()).build();
     }
 
     @Override

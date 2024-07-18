@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-class Echarts4jDefListenerTests {
+class Echarts4JDefProcessorTests {
 
     @Test
     void testParser() throws IOException {
