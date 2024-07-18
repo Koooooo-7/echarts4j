@@ -11,9 +11,8 @@
 > be beaten. —— Neil Gaiman, Coraline
 
 To be honest, I believe using `Java` to build charts is a disaster, as it often feels like struggling in the explicit
-typed hell, accompanied by lengthy lines of code.. However, it also piques my interest in finding ways to approach it
-with a more loosely coupled mindset (not just dumping
-everything as pure `Object`s 🐶). With increased experience in [Echarts](https://echarts.apache.org/) and discovering
+typed hell, accompanied by lengthy lines of code. However, it also piques my interest in finding ways to approach it
+with a more loosely coupled mindset (not just dumping everything as pure `Object`s 🐶). With increased experience in [Echarts](https://echarts.apache.org/) and discovering
 various tricks, I've become even more curious about the possibilities. Fortunately, I now have the time to delve into
 this further. *( contents polished by `ChartGPT-4`)*
 

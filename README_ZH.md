@@ -3,7 +3,7 @@
 [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT)
 ![Echarts](https://img.shields.io/badge/echarts-_v5+-orange)
 ![JDK](https://img.shields.io/badge/JDK-8+-blue)
-![License](https://img.shields.io/badge/License-Apache-2.0-brightgreen.svg)
+![License](https://img.shields.io/badge/License-Apache_2.0-brightgreen.svg)
 [![JavaDoc](https://img.shields.io/badge/JavaDoc-latest-yellow)](https://javadoc.jitpack.io/com/github/koooooo-7/echarts4j/echarts4j-project/main-SNAPSHOT/javadoc/index.html)
 
 
@@ -19,7 +19,7 @@
 > 支持 JDK8+ (别再停留在万年JDK8了...)
 
 项目在 [jitpack](https://jitpack.io/#Koooooo-7/echarts4j/main-SNAPSHOT)上,
-你可以使用 `main-SNAPSHOT` 来获得最新的版本，或者使用锁定的最新版本
+你可以使用 `main-SNAPSHOT` 来获得最新的版本，或者使用锁定的最新版本通过`tag`或者commit。
 [![Release](https://jitpack.io/v/Koooooo-7/echarts4j.svg)](https://jitpack.io/#Koooooo-7/echarts4j)
 .
 
