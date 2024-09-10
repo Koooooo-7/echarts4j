@@ -1,5 +1,5 @@
 ext {
-    javaWebSocketVersion = "1.5.6"
+    javaWebSocketVersion = "1.5.7"
 }
 
 description ':doughnut: An extension for echarts4j for live update.'
