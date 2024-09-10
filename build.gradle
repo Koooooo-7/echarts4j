@@ -23,7 +23,7 @@ allprojects {
 
 ext {
     lombokVersion = "1.18.32"
-    jacksonVersion = "2.17.1"
+    jacksonVersion = "2.17.2"
     cglibVersion = "3.3.0"
     lang3Version = "3.14.0"
     freeMakerVersion = "2.3.33"
