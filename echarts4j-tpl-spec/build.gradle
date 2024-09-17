@@ -2,7 +2,7 @@ plugins {
     id 'antlr'
 }
 ext {
-    antlr4Version = "4.13.1"
+    antlr4Version = "4.13.2"
 }
 
 description ':doughnut: An extension for echarts4j for tpl specification.'
