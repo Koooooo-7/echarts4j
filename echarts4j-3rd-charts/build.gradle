@@ -1,5 +1,5 @@
 ext {
-    lombokVersion = "1.18.36"
+    lombokVersion = "1.18.34"
 }
 
 description ':doughnut: An extension for echarts4j for 3rd charts.'
