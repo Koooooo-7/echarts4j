@@ -1,6 +1,6 @@
 ext {
     playwrightVersion = "1.48.0"
-    jacksonVersion = "2.18.1"
+    jacksonVersion = "2.18.2"
     junitVersion = "5.10.2"
 }
 
