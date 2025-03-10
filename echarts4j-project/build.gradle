@@ -2,7 +2,7 @@ ext {
     lang3Version = "3.17.0"
     freeMakerVersion = "2.3.34"
     lombokVersion = "1.18.36"
-    jsonPVersion = "1.18.3"
+    jsonPVersion = "1.19.1"
     jaywayVersion = "2.9.0"
 }
 
