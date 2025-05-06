@@ -27,7 +27,7 @@ ext {
     cglibVersion = "3.3.0"
     lang3Version = "3.14.0"
     freeMakerVersion = "2.3.33"
-    junitVersion = "5.11.4"
+    junitVersion = "5.12.2"
     jsonPVersion = "1.17.2"
     jaywayVersion = "2.9.0"
 }
