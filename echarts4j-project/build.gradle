@@ -3,7 +3,7 @@ ext {
     freeMakerVersion = "2.3.34"
     lombokVersion = "1.18.42"
     jsonPVersion = "1.21.2"
-    jaywayVersion = "2.9.0"
+    jaywayVersion = "2.10.0"
 }
 
 description ':doughnut: An inevitable charts library for Java.'
